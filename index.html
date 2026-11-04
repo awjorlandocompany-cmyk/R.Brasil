@@ -154,7 +154,7 @@
         </h1>
 
         <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-5">
-          Veja abaixo algumas demonstrações de ofertas e entre no nosso grupo de WhatsApp para ter acesso completo a todos os repasses em tempo real.
+          Veja abaixo os veículos disponíveis na vitrine e entre no nosso grupo de WhatsApp para ter acesso a todas as ofertas em tempo real.
         </p>
 
         <div class="flex flex-wrap justify-center gap-4 mt-8">
@@ -237,175 +237,23 @@
       </div>
     </section>
 
-    <!-- VITRINE DE VEÍCULOS (CARROS FIXOS DE DEMONSTRAÇÃO + FIREBASE) -->
+    <!-- VITRINE DE VEÍCULOS (CONECTADA AO FIREBASE) -->
     <section id="veiculos" class="max-w-7xl mx-auto px-5 py-16">
       <div class="text-center mb-12">
-        <p class="gold font-bold tracking-widest text-sm uppercase">Vitrine de Demonstração</p>
+        <p class="gold font-bold tracking-widest text-sm uppercase">Vitrine do Site</p>
         <h2 class="text-3xl md:text-5xl font-black mt-2">
-          EXEMPLOS DE <span class="gold-gradient">OFERTAS DE REPASSE</span>
+          VEÍCULOS EM <span class="gold-gradient">REPASSE</span>
         </h2>
         <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
-          As ofertas completas com os melhores valores e margens do mercado são enviadas diariamente no nosso <strong>Grupo de WhatsApp (R$ 49,90)</strong>.
+          Confira abaixo as ofertas ativas cadastradas diretamente no sistema.
         </p>
       </div>
 
-      <!-- GRID COM OS CARROS DA DEMONSTRAÇÃO -->
+      <!-- Onde os carros do Firebase vão aparecer com a foto enviada pelo admin -->
       <div id="grid-veiculos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Card 1: HB20 -->
-        <div class="card overflow-hidden flex flex-col justify-between">
-          <div class="relative">
-            <div class="w-full h-48 bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold">
-              <i class="fa-solid fa-car text-5xl"></i>
-            </div>
-            <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
-              Repasse Especial
-            </span>
-          </div>
-          <div class="p-5 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start">
-                <h3 class="font-extrabold text-lg text-white">Hyundai HB20 Comfort 1.0 Flex</h3>
-                <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">2023/2024</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Completo | KM: 82.234 | Laudo Conforme</p>
-              
-              <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
-                <div>
-                  <span class="text-gray-500 text-xs block">Tabela FIPE:</span>
-                  <span class="text-gray-300 line-through font-semibold">R$ 69.800</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-yellow-400 text-xs block font-bold">VER NO GRUPO VIP:</span>
-                  <span class="text-xl font-black text-white">R$ 49,90/Acesso</span>
-                </div>
-              </div>
-            </div>
-            
-            <a href="https://wa.me/5511958370146?text=Olá!%20Vi%20o%20HB20%20na%20vitrine%20do%20site%20e%20quero%20entrar%20no%20Grupo%20VIP%20de%20Repasse%20por%20R$%2049,90" target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
-              <i class="fa-brands fa-whatsapp text-base"></i> Entrar no Grupo para Comprar
-            </a>
-          </div>
+        <div class="col-span-full text-center py-10">
+          <p class="text-gray-400 text-sm"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Carregando veículos do banco de dados...</p>
         </div>
-
-        <!-- Card 2: Fiat Fiorino -->
-        <div class="card overflow-hidden flex flex-col justify-between">
-          <div class="relative">
-            <div class="w-full h-48 bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold">
-              <i class="fa-solid fa-truck-ramp-box text-5xl"></i>
-            </div>
-            <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
-              Margem Alta
-            </span>
-          </div>
-          <div class="p-5 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start">
-                <h3 class="font-extrabold text-lg text-white">Fiat Fiorino Furgão EVO 1.4</h3>
-                <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">2019</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Básico | KM: 164.754 | Freguesia do Ó SP</p>
-              
-              <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
-                <div>
-                  <span class="text-gray-500 text-xs block">Tabela FIPE:</span>
-                  <span class="text-gray-300 line-through font-semibold">R$ 66.142</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-yellow-400 text-xs block font-bold">REPASSE:</span>
-                  <span class="text-xl font-black text-white">R$ 53.900</span>
-                </div>
-              </div>
-            </div>
-            
-            <a href="https://wa.me/5511958370146?text=Olá!%20Vi%20a%20Fiorino%20por%20R$%2053.900%20no%20site%20e%20quero%20saber%20mais%20no%20Grupo%20VIP" target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
-              <i class="fa-brands fa-whatsapp text-base"></i> Entrar no Grupo para Comprar
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3: Corsa Wind -->
-        <div class="card overflow-hidden flex flex-col justify-between">
-          <div class="relative">
-            <div class="w-full h-48 bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold">
-              <i class="fa-solid fa-car-side text-5xl"></i>
-            </div>
-            <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
-              Repasse Barato
-            </span>
-          </div>
-          <div class="p-5 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start">
-                <h3 class="font-extrabold text-lg text-white">GM Corsa Wind 1.0 MPFI 4p</h3>
-                <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">2001</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Completo | Laudo Conforme | Ótima Margem</p>
-              
-              <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
-                <div>
-                  <span class="text-gray-500 text-xs block">Oportunidade:</span>
-                  <span class="text-gray-300 line-through font-semibold">R$ 12.500</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-yellow-400 text-xs block font-bold">REPASSE:</span>
-                  <span class="text-xl font-black text-white">R$ 8.900</span>
-                </div>
-              </div>
-            </div>
-            
-            <a href="https://wa.me/5511958370146?text=Olá!%20Vi%20o%20Corsa%20por%20R$%208.900%20no%20site%20e%20quero%20entrar%20no%20Grupo%20VIP" target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
-              <i class="fa-brands fa-whatsapp text-base"></i> Entrar no Grupo para Comprar
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 4: Jeep Compass -->
-        <div class="card overflow-hidden flex flex-col justify-between">
-          <div class="relative">
-            <div class="w-full h-48 bg-zinc-800 flex items-center justify-center text-zinc-500 font-bold">
-              <i class="fa-solid fa-car-rear text-5xl"></i>
-            </div>
-            <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
-              SUV de Repasse
-            </span>
-          </div>
-          <div class="p-5 flex flex-col flex-grow justify-between">
-            <div>
-              <div class="flex justify-between items-start">
-                <h3 class="font-extrabold text-lg text-white">Jeep Compass Longitude 2.0 Aut.</h3>
-                <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">2018/2018</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-1">Completo | KM: 94.765 | Laudo Conforme</p>
-              
-              <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
-                <div>
-                  <span class="text-gray-500 text-xs block">Tabela FIPE:</span>
-                  <span class="text-gray-300 line-through font-semibold">R$ 85.636</span>
-                </div>
-                <div class="text-right">
-                  <span class="text-yellow-400 text-xs block font-bold">REPASSE:</span>
-                  <span class="text-xl font-black text-white">R$ 72.900</span>
-                </div>
-              </div>
-            </div>
-            
-            <a href="https://wa.me/5511958370146?text=Olá!%20Vi%20o%20Jeep%20Compass%20por%20R$%2072.900%20no%20site%20e%20quero%20entrar%20no%20Grupo%20VIP" target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
-              <i class="fa-brands fa-whatsapp text-base"></i> Entrar no Grupo para Comprar
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- BOTÃO DIRETO PARA O GRUPO VIP -->
-      <div class="mt-12 text-center">
-        <a href="https://wa.me/5511958370146?text=Olá!%20Quero%20entrar%20no%20Grupo%20VIP%20de%20Repasse%20por%20R$%2049,90%20para%20ver%20todas%20as%20ofertas!" 
-           target="_blank" 
-           class="gold-button px-10 py-5 rounded-xl text-base inline-flex items-center gap-3 uppercase shadow-2xl">
-          <i class="fa-solid fa-fire text-xl"></i>
-          <span>VER TODAS AS OFERTAS NO GRUPO VIP - R$ 49,90</span>
-        </a>
       </div>
     </section>
 
@@ -474,60 +322,6 @@
               <span class="text-xs text-gray-500">Lojista Parceiro</span>
             </div>
             <span class="text-[10px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded font-bold">Vendedor</span>
-          </div>
-        </div>
-
-        <div class="card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-3">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-gray-300 text-sm italic mb-4">
-              "Melhor canal de repasse de SP. As ofertas chegam com margem real para revenda. Já comprei 4 carros pelo grupo este mês."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
-            <div>
-              <h4 class="font-bold text-sm text-white">Fernando Albuquerque</h4>
-              <span class="text-xs text-gray-500">Revendedor Autônomo</span>
-            </div>
-            <span class="text-[10px] bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">Comprador</span>
-          </div>
-        </div>
-
-        <div class="card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-3">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-gray-300 text-sm italic mb-4">
-              "Eu estava receosa de vender particular na internet. Pela R.Brasil foi super tranquilo, recebi a proposta de um lojista verificado e o PIX caiu na hora."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
-            <div>
-              <h4 class="font-bold text-sm text-white">Patricia Lima</h4>
-              <span class="text-xs text-gray-500">Vendeu um Jeep Renegade</span>
-            </div>
-            <span class="text-[10px] bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded font-bold">Vendedora</span>
-          </div>
-        </div>
-
-        <div class="card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-3">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-gray-300 text-sm italic mb-4">
-              "O grupo do WhatsApp vale cada centavo dos R$ 49,90. Quem chega primeiro pega os carros mais baratos. Plataforma séria e transparente."
-            </p>
-          </div>
-          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
-            <div>
-              <h4 class="font-bold text-sm text-white">Lucas Prado</h4>
-              <span class="text-xs text-gray-500">Investidor de Veículos</span>
-            </div>
-            <span class="text-[10px] bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">Comprador</span>
           </div>
         </div>
 
@@ -652,6 +446,82 @@
       A R.BRASIL conecta compradores e vendedores através do Grupo VIP e da rede de intermediação com lojistas.
     </p>
   </footer>
+
+  <!-- INTEGRADOR COM FIRESTORE -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // ⚠️ SUBSTITUA COM AS SUAS CHAVES DO FIREBASE:
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY_AQUI",
+      authDomain: "SEU_PROJECT_ID.firebaseapp.com",
+      projectId: "SEU_PROJECT_ID",
+      storageBucket: "SEU_PROJECT_ID.appspot.com",
+      messagingSenderId: "SEU_MESSAGING_SENDER_ID",
+      appId: "SEU_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function carregarVitrine() {
+      const grid = document.getElementById('grid-veiculos');
+      try {
+        const q = query(collection(db, "veiculos"), orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+          grid.innerHTML = '<div class="col-span-full text-center py-10 text-gray-500">Nenhum veículo em repasse cadastrado no momento. Acesse o painel admin para cadastrar.</div>';
+          return;
+        }
+
+        grid.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          const car = doc.data();
+          grid.innerHTML += `
+            <div class="card overflow-hidden flex flex-col justify-between">
+              <div class="relative">
+                <img src="${car.image}" alt="${car.model}" class="w-full h-48 object-cover">
+                <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
+                  ${car.margin} Margem
+                </span>
+              </div>
+              <div class="p-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <div class="flex justify-between items-start">
+                    <h3 class="font-extrabold text-lg text-white">${car.model}</h3>
+                    <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">${car.year}</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-1">${car.details || 'Veículo de Repasse'}</p>
+                  
+                  <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
+                    <div>
+                      <span class="text-gray-500 text-xs block">Tabela FIPE:</span>
+                      <span class="text-gray-300 line-through font-semibold">R$ ${car.fipe}</span>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-yellow-400 text-xs block font-bold">REPASSE:</span>
+                      <span class="text-xl font-black text-white">R$ ${car.repasse}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <a href="https://wa.me/5511958370146?text=Olá! Tenho interesse no veículo ${encodeURIComponent(car.model)} (Repasse R$ ${car.repasse}) visto no site." target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
+                  <i class="fa-brands fa-whatsapp text-base"></i> Tenho Interesse / Grupo
+                </a>
+              </div>
+            </div>
+          `;
+        });
+      } catch (e) {
+        console.error("Erro ao carregar vitrine:", e);
+        grid.innerHTML = '<div class="col-span-full text-center py-10 text-red-400">Erro ao carregar os veículos do banco de dados.</div>';
+      }
+    }
+
+    carregarVitrine();
+  </script>
 
 </body>
 </html>
