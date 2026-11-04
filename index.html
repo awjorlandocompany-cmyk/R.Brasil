@@ -84,6 +84,13 @@
       object-fit: contain;
     }
 
+    .payment-card {
+      background: linear-gradient(145deg, #171717, #080808);
+      border: 1px solid rgba(255, 215, 0, .45);
+      border-radius: 18px;
+      box-shadow: 0 0 35px rgba(255, 215, 0, .1);
+    }
+
     @media (max-width: 768px) {
       .logo-banner-nav {
         height: 38px;
@@ -108,6 +115,7 @@
       <nav class="flex flex-wrap items-center gap-5 text-sm font-bold">
         <a href="#inicio" class="hover:text-yellow-400 transition">INÍCIO</a>
         <a href="#veiculos" class="hover:text-yellow-400 transition gold">VEÍCULOS DE REPASSE</a>
+        <a href="#pagamento" class="hover:text-yellow-400 transition">PAGAMENTOS</a>
         <a href="#anunciar" class="hover:text-yellow-400 transition">VENDER MEU CARRO</a>
         <a href="#certificado" class="hover:text-yellow-400 transition">CERTIFICADO</a>
         <a href="https://wa.me/5511958370146?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20R.Brasil" 
@@ -172,7 +180,73 @@
       <!-- Onde os carros do Firebase vão aparecer automaticamente -->
       <div id="grid-veiculos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="col-span-full text-center py-10">
-          <p class="text-gray-400 text-sm"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Carregando veículos disponíveis...</p>
+          <p class="text-gray-400 text-sm"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Carregando veículos disponíveis do banco de dados...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE FORMAS DE PAGAMENTO -->
+    <section id="pagamento" class="max-w-6xl mx-auto px-5 py-16">
+      <div class="text-center mb-12">
+        <p class="gold font-bold tracking-widest text-sm uppercase">Facilidade & Segurança</p>
+        <h2 class="text-3xl md:text-5xl font-black mt-2">
+          FORMAS DE <span class="gold-gradient">PAGAMENTO</span>
+        </h2>
+        <p class="text-gray-400 mt-3 max-w-xl mx-auto">
+          Oferecemos condições flexíveis para fechar negócio com total transparência e agilidade.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: PIX À Vista -->
+        <div class="payment-card p-8 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl flex items-center justify-center text-yellow-400 text-3xl">
+              <i class="fa-solid fa-pix"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white">PIX à Vista</h3>
+            <p class="text-xs text-yellow-400 font-bold uppercase tracking-wider mt-1">Aprovação Imediata</p>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Transferência rápida e sem burocracia. Garanta a reserva do veículo de forma instantânea.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800">
+            <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-shield-halved text-yellow-500 mr-1"></i> Liberação rápida do veículo</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Cartão de Crédito -->
+        <div class="payment-card p-8 text-center flex flex-col justify-between border-yellow-500">
+          <div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl flex items-center justify-center text-yellow-400 text-3xl">
+              <i class="fa-solid fa-credit-card"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white">Cartão de Crédito</h3>
+            <p class="text-xs text-yellow-400 font-bold uppercase tracking-wider mt-1">Parcelamento Facilitado</p>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Aceitamos as principais bandeiras com opção de parcelamento direto via maquininha ou link seguro.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800">
+            <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-lock text-yellow-500 mr-1"></i> Transação 100% Protegida</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Mercado Pago -->
+        <div class="payment-card p-8 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl flex items-center justify-center text-yellow-400 text-3xl">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white">Mercado Pago</h3>
+            <p class="text-xs text-yellow-400 font-bold uppercase tracking-wider mt-1">Garantia & Custódia</p>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Pagamento processado com a segurança e o suporte da maior plataforma de pagamentos da América Latina.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800">
+            <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-check-double text-yellow-500 mr-1"></i> Intermediação Segura</span>
+          </div>
         </div>
       </div>
     </section>
@@ -185,7 +259,7 @@
           NÓS FAZEMOS A <span class="gold-gradient">INTERMEDIAÇÃO</span>
         </h2>
         <p class="text-gray-300 text-base md:text-lg mt-5 max-w-3xl mx-auto leading-relaxed">
-          Temos uma rede ativa com <strong>mais de 100 lojistas credenciados</strong> prontos para comprar seu veículo rapidamente. Envie os dados no nosso WhatsApp!
+          Temos uma rede ativa com <strong>mais de 100 lojistas credenciados</strong> prontos para comprar seu veículo rapidamente. Envie os dados no nosso WhatsApp e ative o atendimento automático agora mesmo!
         </p>
         <div class="mt-8 flex justify-center items-center">
           <a href="https://wa.me/5511958370146?text=Olá%2C%20tenho%20um%20veículo%20e%20quero%20vender%20pela%20intermediação%20da%20R.Brasil!" 
@@ -195,24 +269,48 @@
             <span>VENDER MEU CARRO PELO WHATSAPP</span>
           </a>
         </div>
+        <p class="text-xs text-gray-400 mt-4">
+          <i class="fa-solid fa-bolt text-yellow-400"></i> Atendimento automático 24/7 pelo número: <strong>(11) 95837-0146</strong>
+        </p>
       </div>
     </section>
 
-    <!-- SELO DE CERTIFICADO -->
+    <!-- SELO DE CERTIFICADO COM QR CODE -->
     <section id="certificado" class="max-w-5xl mx-auto px-5 py-12 text-center">
       <p class="gold font-bold tracking-widest text-sm uppercase mb-2">Garantia & Procedência</p>
       <h2 class="text-3xl md:text-4xl font-black mb-8">
         PLATAFORMA <span class="gold-gradient">CERTIFICADA</span>
       </h2>
 
-      <div class="max-w-md mx-auto bg-gradient-to-b from-[#1c1917] via-black to-black border-2 border-yellow-500/80 rounded-2xl p-8 text-center shadow-2xl shadow-yellow-500/10">
+      <div class="max-w-md mx-auto bg-gradient-to-b from-[#1c1917] via-black to-black border-2 border-yellow-500/80 rounded-2xl p-8 text-center shadow-2xl shadow-yellow-500/10 relative overflow-hidden">
         <img src="./R.Brasil Automotive Logo Banner.png" alt="Selo R.Brasil" class="h-16 mx-auto mb-4 object-contain">
-        <div class="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-yellow-500/10 border border-yellow-400 text-yellow-400">
+
+        <div class="relative inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-yellow-500/10 border border-yellow-400 text-yellow-400">
           <i class="fa-solid fa-award text-3xl"></i>
         </div>
+
         <h4 class="text-xs tracking-widest text-yellow-400 uppercase font-bold">Selo Oficial de Segurança</h4>
         <h3 class="text-xl font-extrabold text-white tracking-wide uppercase mt-1">EMPRESA CERTIFICADA</h3>
-        <p class="text-sm text-gray-300 font-medium mt-3">Rede Autêntica • Negócios Seguros • Intermediação com Lojistas</p>
+        
+        <div class="w-16 h-0.5 bg-yellow-500 mx-auto my-3"></div>
+
+        <p class="text-sm text-gray-300 font-medium">Rede Autêntica • Negócios Seguros • Intermediação com Lojistas</p>
+
+        <!-- QR CODE DE VALIDAÇÃO -->
+        <div class="mt-6 p-4 bg-zinc-900/80 border border-yellow-500/30 rounded-xl inline-block">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/5511958370146" alt="QR Code de Validação WhatsApp R.Brasil" class="w-32 h-32 mx-auto rounded border border-yellow-500/50">
+          <p class="text-[11px] text-gray-400 mt-2 font-medium">Escaneie para validar a autenticidade</p>
+        </div>
+
+        <div class="mt-5 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+          <p class="text-xs text-yellow-300 font-semibold">
+            <i class="fa-solid fa-circle-check mr-1"></i> Credenciamento Ativo para Compra e Venda de Veículos
+          </p>
+        </div>
+
+        <span class="inline-block mt-5 px-4 py-1.5 bg-yellow-500 text-black text-xs font-black uppercase rounded-full tracking-wider shadow-lg">
+          GARANTIA DE PROCEDÊNCIA
+        </span>
       </div>
     </section>
 
@@ -226,85 +324,4 @@
   </a>
 
   <!-- RODAPÉ -->
-  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm px-5 bg-black">
-    <p>© 2026 R.BRASIL — REPASSE DE VEÍCULOS. Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- SCRIPT FIREBASE PARA PUXAR OS CARROS CADASTRADOS -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    // ⚠️ COLOQUE AS MESMAS CHAVES DO SEU ADMIN.HTML AQUI:
-    const firebaseConfig = {
-      apiKey: "SUA_API_KEY_AQUI",
-      authDomain: "SEU_PROJECT_ID.firebaseapp.com",
-      projectId: "SEU_PROJECT_ID",
-      storageBucket: "SEU_PROJECT_ID.appspot.com",
-      messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-      appId: "SEU_APP_ID"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    async function carregarVitrine() {
-      const grid = document.getElementById('grid-veiculos');
-      try {
-        const q = query(collection(db, "veiculos"), orderBy("createdAt", "desc"));
-        const querySnapshot = await getDocs(q);
-
-        if (querySnapshot.empty) {
-          grid.innerHTML = '<div class="col-span-full text-center py-10 text-gray-500">Nenhum veículo em repasse no momento. Acesse o painel admin para cadastrar.</div>';
-          return;
-        }
-
-        grid.innerHTML = "";
-        querySnapshot.forEach((doc) => {
-          const car = doc.data();
-          grid.innerHTML += `
-            <div class="card overflow-hidden flex flex-col justify-between">
-              <div class="relative">
-                <img src="${car.image}" alt="${car.model}" class="w-full h-48 object-cover">
-                <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
-                  ${car.margin} Margem
-                </span>
-              </div>
-              <div class="p-5 flex flex-col flex-grow justify-between">
-                <div>
-                  <div class="flex justify-between items-start">
-                    <h3 class="font-extrabold text-lg text-white">${car.model}</h3>
-                    <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">${car.year}</span>
-                  </div>
-                  <p class="text-xs text-gray-400 mt-1">${car.details || 'Veículo de Repasse'}</p>
-                  
-                  <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
-                    <div>
-                      <span class="text-gray-500 text-xs block">Tabela FIPE:</span>
-                      <span class="text-gray-300 line-through font-semibold">R$ ${car.fipe}</span>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-yellow-400 text-xs block font-bold">REPASSE:</span>
-                      <span class="text-xl font-black text-white">R$ ${car.repasse}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <a href="https://wa.me/5511958370146?text=Olá! Tenho interesse no veículo ${encodeURIComponent(car.model)} (Repasse R$ ${car.repasse})." target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
-                  <i class="fa-brands fa-whatsapp text-base"></i> Reservar / Comprar
-                </a>
-              </div>
-            </div>
-          `;
-        });
-      } catch (e) {
-        console.error("Erro ao carregar vitrine:", e);
-        grid.innerHTML = '<div class="col-span-full text-center py-10 text-red-400">Erro ao carregar os veículos do banco de dados.</div>';
-      }
-    }
-
-    carregarVitrine();
-  </script>
-
-</body>
-</html>
+  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-
