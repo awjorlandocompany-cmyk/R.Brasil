@@ -1,11 +1,13 @@
-
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>R.BRASIL | Repasse de Veículos</title>
-  <meta name="description" content="R.BRASIL - Oportunidades conectando compradores e vendedores de veículos.">
+  <meta name="description" content="R.BRASIL - Rede de oportunidades de repasse de veículos, conectando compradores e vendedores.">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -15,36 +17,67 @@
       color: white;
       font-family: Arial, sans-serif;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     .gold {
       color: #FFD700;
     }
+
     .gold-gradient {
       background: linear-gradient(180deg, #FFF066, #FFCC00, #D49B00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .silver-gradient {
-      background: linear-gradient(180deg, #FFFFFF, #CBD5E1, #64748B);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+
     .gold-border {
       border: 1px solid rgba(255, 215, 0, .35);
     }
+
     .gold-button {
       background: #FFD700;
       color: #080808;
       font-weight: 800;
       transition: .2s;
     }
+
     .gold-button:hover {
       background: #ffe766;
       transform: translateY(-2px);
     }
+
     .card {
       background: #111;
       border: 1px solid rgba(255, 215, 0, .2);
       border-radius: 14px;
+    }
+
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      display: block;
+      width: 260px;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .payment-card {
+      background: linear-gradient(145deg, #171717, #080808);
+      border: 1px solid rgba(255, 215, 0, .45);
+      border-radius: 18px;
+      box-shadow: 0 0 35px rgba(255, 215, 0, .07);
+    }
+
+    @media (max-width: 768px) {
+      .logo-img {
+        width: 190px;
+      }
     }
   </style>
 </head>
@@ -52,30 +85,33 @@
 <body>
 
   <!-- MENU -->
-<header class="border-b border-yellow-500/20 bg-black">
-  <div class="max-w-7xl mx-auto px-5 py-5 flex flex-wrap items-center justify-between gap-4">
+  <header class="border-b border-yellow-500/20 bg-black">
+    <div class="max-w-7xl mx-auto px-5 py-5 flex flex-wrap items-center justify-between gap-4">
 
-    <a href="#inicio" class="logo-link">
-  <img src="./R.Brasil Automotive Logo Banner.png"
-       alt="R.BRASIL - Repasse de Veículos"
-       class="logo-img">
-</a>
+      <a href="#inicio" class="logo-link">
+        <img
+          src="./R.Brasil Automotive Logo Banner.png"
+          alt="R.BRASIL - Repasse de Veículos"
+          class="logo-img">
+      </a>
 
-    <nav class="flex flex-wrap gap-5 text-sm font-bold">
-      <a href="#inicio" class="hover:text-yellow-400">INÍCIO</a>
-      <a href="#como-funciona" class="hover:text-yellow-400">COMO FUNCIONA</a>
-      <a href="#anunciar" class="hover:text-yellow-400">ANUNCIAR</a>
-      <a href="#contato" class="hover:text-yellow-400">CONTATO</a>
-    </nav>
+      <nav class="flex flex-wrap gap-5 text-sm font-bold">
+        <a href="#inicio" class="hover:text-yellow-400">INÍCIO</a>
+        <a href="#como-funciona" class="hover:text-yellow-400">COMO FUNCIONA</a>
+        <a href="#pagamento" class="hover:text-yellow-400">ACESSAR GRUPOS</a>
+        <a href="#anunciar" class="hover:text-yellow-400">ANUNCIAR</a>
+        <a href="#contato" class="hover:text-yellow-400">CONTATO</a>
+      </nav>
 
-  </div>
-</header>
+    </div>
+  </header>
 
   <main>
 
     <!-- DESTAQUE PRINCIPAL -->
     <section id="inicio" class="relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-5 py-20 md:py-28 text-center">
+
         <p class="gold font-bold tracking-[.3em] text-sm mb-5">
           REPASSE DE VEÍCULOS
         </p>
@@ -94,108 +130,237 @@
           <a href="#anunciar" class="gold-button px-8 py-4 rounded-lg">
             ANUNCIAR VEÍCULO
           </a>
+
           <a href="#como-funciona" class="gold-border px-8 py-4 rounded-lg font-bold hover:bg-yellow-500/10">
             CONHECER A R.BRASIL
           </a>
         </div>
+
       </div>
     </section>
 
     <!-- BENEFÍCIOS -->
     <section class="max-w-7xl mx-auto px-5 pb-16">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
         <div class="card p-6 text-center">
           <i class="fa-solid fa-handshake gold text-3xl mb-4"></i>
           <h3 class="font-extrabold">GRUPOS DE REPASSE</h3>
-          <p class="text-gray-400 text-sm mt-2">Conexões entre compradores e vendedores.</p>
+          <p class="text-gray-400 text-sm mt-2">
+            Conexões entre compradores e vendedores.
+          </p>
         </div>
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-car gold text-3xl mb-4"></i>
           <h3 class="font-extrabold">OPORTUNIDADES</h3>
-          <p class="text-gray-400 text-sm mt-2">Veículos e ofertas divulgadas na rede.</p>
+          <p class="text-gray-400 text-sm mt-2">
+            Veículos e ofertas divulgadas na rede.
+          </p>
         </div>
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-shield-halved gold text-3xl mb-4"></i>
           <h3 class="font-extrabold">NEGÓCIOS COM ATENÇÃO</h3>
-          <p class="text-gray-400 text-sm mt-2">Informações para ajudar na negociação.</p>
+          <p class="text-gray-400 text-sm mt-2">
+            Informações para ajudar na negociação.
+          </p>
         </div>
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-bolt gold text-3xl mb-4"></i>
           <h3 class="font-extrabold">MAIS CONEXÕES</h3>
-          <p class="text-gray-400 text-sm mt-2">Amplie sua rede no mercado automotivo.</p>
+          <p class="text-gray-400 text-sm mt-2">
+            Amplie sua rede no mercado automotivo.
+          </p>
         </div>
+
       </div>
     </section>
 
     <!-- COMO FUNCIONA -->
     <section id="como-funciona" class="bg-zinc-950 border-y border-yellow-500/20">
       <div class="max-w-6xl mx-auto px-5 py-20 text-center">
+
         <p class="gold font-bold tracking-widest text-sm">R.BRASIL</p>
+
         <h2 class="text-3xl md:text-5xl font-black mt-3">
           COMO <span class="gold-gradient">FUNCIONA</span>
         </h2>
+
         <p class="text-gray-400 max-w-2xl mx-auto mt-5">
           Um ambiente para aproximar pessoas que trabalham com compra,
           venda e repasse de veículos.
         </p>
 
         <div class="grid md:grid-cols-3 gap-6 mt-12 text-left">
+
           <div class="card p-7">
             <span class="gold text-3xl font-black">01</span>
             <h3 class="font-bold text-xl mt-4">Encontre oportunidades</h3>
-            <p class="text-gray-400 mt-3">Veja anúncios e informações de veículos disponíveis.</p>
+            <p class="text-gray-400 mt-3">
+              Veja anúncios e informações de veículos disponíveis.
+            </p>
           </div>
+
           <div class="card p-7">
             <span class="gold text-3xl font-black">02</span>
             <h3 class="font-bold text-xl mt-4">Conecte-se</h3>
-            <p class="text-gray-400 mt-3">Entre em contato com quem anunciou o veículo.</p>
+            <p class="text-gray-400 mt-3">
+              Entre em contato com quem anunciou o veículo.
+            </p>
           </div>
+
           <div class="card p-7">
             <span class="gold text-3xl font-black">03</span>
             <h3 class="font-bold text-xl mt-4">Negocie com cuidado</h3>
-            <p class="text-gray-400 mt-3">Confira documentos, condições e procedência antes de fechar.</p>
+            <p class="text-gray-400 mt-3">
+              Confira documentos, condições e procedência antes de fechar.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- ACESSO AOS GRUPOS E PAGAMENTO -->
+    <section id="pagamento" class="max-w-5xl mx-auto px-5 py-20 text-center">
+
+      <p class="gold font-bold tracking-widest text-sm">
+        FAÇA PARTE DA REDE
+      </p>
+
+      <h2 class="text-3xl md:text-5xl font-black mt-3">
+        ENTRE PARA A <span class="gold-gradient">R.BRASIL</span>
+      </h2>
+
+      <p class="text-gray-400 max-w-2xl mx-auto mt-5">
+        Tenha acesso à rede de grupos de repasse de veículos,
+        conecte-se com compradores e vendedores e acompanhe oportunidades.
+      </p>
+
+      <div class="payment-card max-w-md mx-auto mt-10 p-8">
+
+        <i class="fa-solid fa-car-side gold text-4xl"></i>
+
+        <h3 class="text-2xl font-black mt-4">
+          ACESSO AOS GRUPOS
+        </h3>
+
+        <p class="text-gray-400 text-sm mt-2">
+          R.BRASIL — REPASSE DE VEÍCULOS
+        </p>
+
+        <div class="gold-gradient text-5xl font-black mt-7">
+          R$ 49,90
+        </div>
+
+        <p class="text-gray-400 text-sm mt-2">
+          Pagamento único
+        </p>
+
+        <a
+          href="https://recargapay.com.br/r/9E3X5Or"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="gold-button block w-full px-6 py-5 rounded-lg mt-8 text-lg"
+        >
+          <i class="fa-solid fa-lock mr-2"></i>
+          QUERO ENTRAR AGORA
+        </a>
+
+        <div class="border-t border-yellow-500/20 mt-8 pt-7">
+
+          <p class="font-bold">
+            OU PAGUE PELO QR CODE
+          </p>
+
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Frecargapay.com.br%2Fr%2F9E3X5Or"
+            alt="QR Code de pagamento R.BRASIL"
+            class="w-56 h-56 mx-auto mt-5 bg-white p-2 rounded-lg"
+          >
+
+          <p class="text-gray-500 text-xs mt-4">
+            Escaneie o código com a câmera do celular para abrir o pagamento.
+          </p>
+
+        </div>
+
+        <div class="border-t border-yellow-500/20 mt-7 pt-6">
+          <p class="text-gray-300 text-sm">
+            O acesso será liberado após a confirmação do pagamento
+            e a verificação da participação.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="text-gray-500 text-xs max-w-xl mx-auto mt-7">
+        A participação está sujeita às regras dos grupos e à disponibilidade
+        de vagas. Consulte as condições de acesso antes de efetuar o pagamento.
+      </p>
+
+    </section>
+
     <!-- ANUNCIAR -->
     <section id="anunciar" class="max-w-5xl mx-auto px-5 py-20 text-center">
-      <p class="gold font-bold tracking-widest text-sm">FAÇA PARTE DA REDE</p>
+
+      <p class="gold font-bold tracking-widest text-sm">
+        FAÇA PARTE DA REDE
+      </p>
+
       <h2 class="text-3xl md:text-5xl font-black mt-3">
         TEM UM VEÍCULO PARA <span class="gold-gradient">REPASSAR?</span>
       </h2>
+
       <p class="text-gray-400 mt-5 max-w-2xl mx-auto">
         Entre em contato com a R.BRASIL para saber como divulgar sua oportunidade.
       </p>
+
       <a href="#contato" class="gold-button inline-block px-9 py-4 rounded-lg mt-8">
         QUERO ANUNCIAR
       </a>
+
     </section>
 
     <!-- CONTATO -->
     <section id="contato" class="bg-zinc-950 border-t border-yellow-500/20">
+
       <div class="max-w-5xl mx-auto px-5 py-16 text-center">
+
         <h2 class="text-3xl font-black">
           FALE COM A <span class="gold-gradient">R.BRASIL</span>
         </h2>
+
         <p class="text-gray-400 mt-4">
           Entre em contato para conhecer a rede e as oportunidades.
         </p>
+
         <p class="text-gray-500 text-sm mt-6">
           O canal oficial de atendimento será divulgado em breve.
         </p>
+
       </div>
     </section>
 
   </main>
 
-  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm">
-    © 2026 R.BRASIL — REPASSE DE VEÍCULOS. Todos os direitos reservados.
+  <!-- RODAPÉ -->
+  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm px-5">
+
+    <p>
+      © 2026 R.BRASIL — REPASSE DE VEÍCULOS.
+      Todos os direitos reservados.
+    </p>
+
+    <p class="mt-2">
+      A R.BRASIL conecta compradores e vendedores.
+      A negociação e a avaliação de cada veículo são responsabilidade das partes.
+    </p>
+
   </footer>
 
 </body>
 </html>
+```
