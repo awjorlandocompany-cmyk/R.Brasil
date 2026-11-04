@@ -1,65 +1,131 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R.Brasil - Repasse de Veículos</title>
-    <!-- Incluindo o Tailwind CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+
+  <title>R.BRASIL | Repasse de Veículos</title>
+  <meta name="description" content="R.BRASIL: oportunidades de repasse de veículos, conexão entre compradores e vendedores.">
+
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background: #080808; color: #fff; }
+    .amarelo { color: #FFD700; }
+    .fundo-amarelo { background: #FFD700; color: #080808; }
+    .borda-amarela { border-color: #FFD700; }
+    .card { background: #141414; border: 1px solid #303030; }
+    .card:hover { border-color: #FFD700; }
+  </style>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col justify-between">
 
-    <!-- Cabeçalho / Banner -->
-    <header class="w-full bg-black border-b border-[#222] py-6 px-4">
-        <div class="container mx-auto flex flex-col items-center text-center">
-            <!-- Imagem do Logotipo / Banner fornecido -->
-            <img src="R.Brasil Automotive Logo Banner.png" alt="R.Brasil Repasse de Veículos" class="max-w-md w-full h-auto object-cover rounded-xl shadow-lg mb-4">
-            
-            <h1 class="text-3xl font-extrabold tracking-wider text-[#FFD700]">R.BRASIL</h1>
-            <p class="text-lg text-gray-300 font-medium tracking-wide mt-1">REPASSE DE VEÍCULOS</p>
-            <p class="text-sm text-gray-400 italic mt-2">Oportunidades conectando compradores e vendedores.</p>
-        </div>
-    </header>
+<body class="min-h-screen">
 
-    <!-- Conteúdo Principal / Pilares -->
-    <main class="container mx-auto px-4 py-8 flex-grow">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            
-            <!-- Pilar 1 -->
-            <div class="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col items-center justify-center hover:border-[#FFD700] transition">
-                <span class="text-3xl mb-3">🤝</span>
-                <h3 class="font-bold text-base text-white">GRUPOS DE REPASSE</h3>
-                <p class="text-xs text-gray-400 mt-1">Conexão direta com oportunidades.</p>
-            </div>
+  <header class="border-b border-[#292929]">
+    <div class="max-w-6xl mx-auto px-5 py-5 flex flex-col items-center text-center">
 
-            <!-- Pilar 2 -->
-            <div class="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col items-center justify-center hover:border-[#FFD700] transition">
-                <span class="text-3xl mb-3">🚗</span>
-                <h3 class="font-bold text-base text-white">OFERTAS EXCLUSIVAS</h3>
-                <p class="text-xs text-gray-400 mt-1">Veículos selecionados para negócios rápidos.</p>
-            </div>
+      <img
+        src="./R.Brasil Automotive Logo Banner.png"
+        alt="Logo R.BRASIL"
+        class="w-full max-w-3xl rounded-xl mb-5"
+      >
 
-            <!-- Pilar 3 -->
-            <div class="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col items-center justify-center hover:border-[#FFD700] transition">
-                <span class="text-3xl mb-3">🛡️</span>
-                <h3 class="font-bold text-base text-white">NEGÓCIOS SEGUROS</h3>
-                <p class="text-xs text-gray-400 mt-1">Transparência e segurança jurídica.</p>
-            </div>
+      <h1 class="text-4xl md:text-5xl font-black tracking-wider amarelo">
+        R.BRASIL
+      </h1>
 
-            <!-- Pilar 4 -->
-            <div class="bg-[#111] border border-[#333] p-6 rounded-xl flex flex-col items-center justify-center hover:border-[#FFD700] transition">
-                <span class="text-3xl mb-3">⚡</span>
-                <h3 class="font-bold text-base text-white">REALIZE SEU NEGÓCIO</h3>
-                <p class="text-xs text-gray-400 mt-1">Feche vendas com agilidade.</p>
-            </div>
+      <p class="text-lg font-bold tracking-widest mt-2">
+        REPASSE DE VEÍCULOS
+      </p>
 
-        </div>
-    </main>
+      <p class="text-gray-400 mt-3 max-w-xl">
+        Oportunidades conectando compradores e vendedores.
+      </p>
 
-    <!-- Rodapé -->
-    <footer class="w-full bg-[#0a0a0a] border-t border-[#222] py-4 text-center text-xs text-gray-500">
-        &copy; 2026 R.Brasil Repasse de Veículos. Todos os direitos reservados.
-    </footer>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-12">
+
+    <section class="text-center mb-12">
+      <span class="amarelo font-bold tracking-widest text-sm">
+        REDE DE OPORTUNIDADES
+      </span>
+
+      <h2 class="text-3xl md:text-5xl font-black mt-3">
+        ENCONTRE SUA PRÓXIMA
+        <span class="amarelo">OPORTUNIDADE</span>
+      </h2>
+
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+        Uma rede para aproximar profissionais, compradores e vendedores
+        do mercado de repasse de veículos.
+      </p>
+    </section>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <article class="card rounded-xl p-7 text-center transition">
+        <div class="text-4xl mb-4">🤝</div>
+        <h3 class="font-bold amarelo">GRUPOS DE REPASSE</h3>
+        <p class="text-sm text-gray-400 mt-3">
+          Conexão com comunidades e profissionais do setor.
+        </p>
+      </article>
+
+      <article class="card rounded-xl p-7 text-center transition">
+        <div class="text-4xl mb-4">🚗</div>
+        <h3 class="font-bold amarelo">OFERTAS DE VEÍCULOS</h3>
+        <p class="text-sm text-gray-400 mt-3">
+          Oportunidades de veículos anunciadas por vendedores.
+        </p>
+      </article>
+
+      <article class="card rounded-xl p-7 text-center transition">
+        <div class="text-4xl mb-4">🛡️</div>
+        <h3 class="font-bold amarelo">TRANSPARÊNCIA</h3>
+        <p class="text-sm text-gray-400 mt-3">
+          Informações claras para ajudar na avaliação dos negócios.
+        </p>
+      </article>
+
+      <article class="card rounded-xl p-7 text-center transition">
+        <div class="text-4xl mb-4">⚡</div>
+        <h3 class="font-bold amarelo">NOVAS CONEXÕES</h3>
+        <p class="text-sm text-gray-400 mt-3">
+          Aproximando compradores e vendedores.
+        </p>
+      </article>
+
+    </section>
+
+    <section class="mt-14 rounded-2xl border borda-amarela p-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-black amarelo">
+        FAÇA PARTE DA R.BRASIL
+      </h2>
+
+      <p class="text-gray-300 mt-3">
+        Conheça nossa rede de oportunidades no mercado automotivo.
+      </p>
+
+      <p class="text-sm text-gray-500 mt-5">
+        Em breve: acesso aos grupos e ofertas de repasse.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-[#292929] bg-[#101010] py-6 text-center">
+    <p class="text-sm text-gray-400">
+      © 2026 R.BRASIL — Repasse de Veículos.
+    </p>
+    <p class="text-xs text-gray-600 mt-2">
+      Plataforma de conexão entre compradores e vendedores.
+    </p>
+  </footer>
 
 </body>
 </html>
