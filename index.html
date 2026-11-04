@@ -49,6 +49,20 @@
       box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
     }
 
+    .wsp-button {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      font-weight: 800;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .wsp-button:hover {
+      background: linear-gradient(135deg, #34E075 0%, #159E8E 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    }
+
     .card {
       background: #111;
       border: 1px solid rgba(255, 215, 0, .2);
@@ -102,14 +116,18 @@
           class="logo-banner-nav">
       </a>
 
-      <nav class="flex flex-wrap gap-5 text-sm font-bold">
+      <nav class="flex flex-wrap items-center gap-5 text-sm font-bold">
         <a href="#inicio" class="hover:text-yellow-400 transition">INÍCIO</a>
         <a href="#como-funciona" class="hover:text-yellow-400 transition">COMO FUNCIONA</a>
         <a href="#certificado" class="hover:text-yellow-400 transition">CERTIFICADO</a>
         <a href="#depoimentos" class="hover:text-yellow-400 transition">DEPOIMENTOS</a>
         <a href="#pagamento" class="hover:text-yellow-400 transition">ACESSAR GRUPOS</a>
-        <a href="#anunciar" class="hover:text-yellow-400 transition">ANUNCIAR</a>
-        <a href="#contato" class="hover:text-yellow-400 transition">CONTATO</a>
+        <a href="#anunciar" class="hover:text-yellow-400 transition">VENDER MEU CARRO</a>
+        <a href="https://wa.me/5511958370146?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20R.Brasil" 
+           target="_blank" 
+           class="wsp-button px-4 py-2 rounded-lg flex items-center gap-2 text-xs uppercase">
+          <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+        </a>
       </nav>
 
     </div>
@@ -136,15 +154,17 @@
 
         <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-5">
           Oportunidades conectando compradores e vendedores.
-          Encontre veículos, anuncie oportunidades e amplie sua rede de negócios com procedência garantida.
+          Encontre veículos, anuncie seu carro para mais de 100 lojistas e amplie seus negócios.
         </p>
 
         <div class="flex flex-wrap justify-center gap-4 mt-8">
-          <a href="#anunciar" class="gold-button px-8 py-4 rounded-lg flex items-center gap-2">
-            <i class="fa-solid fa-car"></i> ANUNCIAR VEÍCULO
+          <a href="https://wa.me/5511958370146?text=Ol%C3%A1%2C%20tenho%20um%20ve%C3%ADculo%20e%20gostaria%20de%20vender%20atrav%C3%A9s%20da%20R.Brasil!" 
+             target="_blank" 
+             class="wsp-button px-8 py-4 rounded-lg flex items-center gap-2 text-base">
+            <i class="fa-brands fa-whatsapp text-xl"></i> VENDER MEU CARRO AGORA
           </a>
 
-          <a href="#como-funciona" class="gold-border px-8 py-4 rounded-lg font-bold hover:bg-yellow-500/10 transition">
+          <a href="#como-funciona" class="gold-border px-8 py-4 rounded-lg font-bold hover:bg-yellow-500/10 transition flex items-center">
             CONHECER A R.BRASIL
           </a>
         </div>
@@ -178,13 +198,14 @@
           <p class="text-gray-400 text-xs md:text-sm mt-2">
             Verificação rigorosa e suporte na negociação.
           </p>
+
         </div>
 
         <div class="card p-6 text-center">
-          <i class="fa-solid fa-bolt gold text-3xl mb-4"></i>
-          <h3 class="font-extrabold uppercase text-sm md:text-base">REALIZE SEU NEGÓCIO</h3>
+          <i class="fa-solid fa-store gold text-3xl mb-4"></i>
+          <h3 class="font-extrabold uppercase text-sm md:text-base">+100 LOJISTAS</h3>
           <p class="text-gray-400 text-xs md:text-sm mt-2">
-            Giro rápido de estoque e expansão de contatos.
+            Sua oferta enviada direto para compradores ativos.
           </p>
         </div>
 
@@ -218,9 +239,9 @@
 
           <div class="card p-7">
             <span class="gold text-3xl font-black">02</span>
-            <h3 class="font-bold text-xl mt-4">Conecte-se com Segurança</h3>
+            <h3 class="font-bold text-xl mt-4">Intermediação Rápida</h3>
             <p class="text-gray-400 mt-3">
-              Negocie diretamente com lojistas e revendedores credenciados na rede.
+              Anuncie seu veículo e nós intermediamos a venda para nossa rede com mais de 100 lojistas.
             </p>
           </div>
 
@@ -228,7 +249,7 @@
             <span class="gold text-3xl font-black">03</span>
             <h3 class="font-bold text-xl mt-4">Feche Negócios Rápidos</h3>
             <p class="text-gray-400 mt-3">
-              Receba suporte completo, verificação e dados de procedência para garantir seu lucro.
+              Receba atendimento automático no WhatsApp e feche vendas com segurança e agilidade.
             </p>
           </div>
 
@@ -236,8 +257,38 @@
       </div>
     </section>
 
+    <!-- ANUNCIAR / INTERMEDIAÇÃO DE VEÍCULOS (NOVA SEÇÃO DEDICADA) -->
+    <section id="anunciar" class="max-w-5xl mx-auto px-5 py-20 text-center">
+      <div class="card p-8 md:p-12 relative overflow-hidden border-2 border-yellow-500/50">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-yellow-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <p class="gold font-bold tracking-widest text-sm uppercase">Quer Vender Seu Carro?</p>
+
+        <h2 class="text-3xl md:text-5xl font-black mt-3">
+          NÓS FAZEMOS A <span class="gold-gradient">INTERMEDIAÇÃO</span>
+        </h2>
+
+        <p class="text-gray-300 text-base md:text-lg mt-5 max-w-3xl mx-auto leading-relaxed">
+          Temos uma rede ativa com <strong>mais de 100 lojistas credenciados</strong> prontos para comprar seu veículo rapidamente. Envie as fotos e dados do carro no nosso WhatsApp e ative o atendimento automático agora mesmo!
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+          <a href="https://wa.me/5511958370146?text=Ol%C3%A1%2C%20tenho%20um%20ve%C3%ADculo%20e%20quero%20vender%20pela%20intermedia%C3%A7%C3%A3o%20da%20R.Brasil!" 
+             target="_blank" 
+             class="wsp-button text-lg px-8 py-5 rounded-xl flex items-center gap-3 w-full sm:w-auto justify-center">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span>VENDER MEU CARRO PELO WHATSAPP</span>
+          </a>
+        </div>
+
+        <p class="text-xs text-gray-400 mt-4">
+          <i class="fa-solid fa-bolt text-yellow-400"></i> Atendimento automático 24/7 pelo número: <strong>(11) 95837-0146</strong>
+        </p>
+      </div>
+    </section>
+
     <!-- SELO DE CERTIFICADO E GARANTIA -->
-    <section id="certificado" class="max-w-5xl mx-auto px-5 py-16 text-center">
+    <section id="certificado" class="max-w-5xl mx-auto px-5 py-12 text-center">
       
       <p class="gold font-bold tracking-widest text-sm uppercase mb-2">Garantia & Procedência</p>
       <h2 class="text-3xl md:text-4xl font-black mb-8">
@@ -245,10 +296,8 @@
       </h2>
 
       <div class="max-w-md mx-auto bg-gradient-to-b from-[#1c1917] via-black to-black border-2 border-yellow-500/80 rounded-2xl p-8 text-center shadow-2xl shadow-yellow-500/10 relative overflow-hidden">
-        <!-- Efeito Dourado de Fundo -->
         <div class="absolute -top-12 -left-12 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl pointer-events-none"></div>
 
-        <!-- Logo Pequena no Certificado -->
         <img src="./R.Brasil Automotive Logo Banner.png" alt="Selo R.Brasil" class="h-16 mx-auto mb-4 object-contain">
 
         <div class="relative inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-yellow-500/10 border border-yellow-400 text-yellow-400">
@@ -260,7 +309,7 @@
         
         <div class="w-16 h-0.5 bg-yellow-500 mx-auto my-3"></div>
 
-        <p class="text-sm text-gray-300 font-medium">Rede Autêntica • Negócios Seguros • Procedência Verificada</p>
+        <p class="text-sm text-gray-300 font-medium">Rede Autêntica • Negócios Seguros • Intermediação com Lojistas</p>
         
         <div class="mt-5 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
           <p class="text-xs text-yellow-300 font-semibold">
@@ -338,38 +387,6 @@
             <span class="text-xs font-bold text-yellow-400 uppercase">Juliana Castro — Compradora (RS)</span>
           </div>
 
-          <div class="card p-5">
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-sm text-gray-300 italic mb-3">"O grupo de repasse deles é dinâmico e direto ao ponto. Sem enrolação, oportunidades reais aparecendo diariamente."</p>
-            <span class="text-xs font-bold text-yellow-400 uppercase">Lucas Alencar — Revendedor (GO)</span>
-          </div>
-
-          <div class="card p-5">
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-sm text-gray-300 italic mb-3">"Segurança em primeiro lugar. Fazer negócio sabendo que há verificação e procedimentos claros faz toda a diferença."</p>
-            <span class="text-xs font-bold text-yellow-400 uppercase">Rodrigo Santoro — Lojista (BA)</span>
-          </div>
-
-          <div class="card p-5">
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-sm text-gray-300 italic mb-3">"Já uso há mais de 6 meses e não troco. Agilidade no fechamento dos contratos e veículos de procedência."</p>
-            <span class="text-xs font-bold text-yellow-400 uppercase">André Luiz — Comprador (DF)</span>
-          </div>
-
-          <div class="card p-5">
-            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-sm text-gray-300 italic mb-3">"Agilidade, transparência e lucro certo nas revendas. A R.Brasil é hoje minha principal fonte de captação de veículos."</p>
-            <span class="text-xs font-bold text-yellow-400 uppercase">Gabriel Ferreira — Revendedor (ES)</span>
-          </div>
-
         </div>
       </div>
     </section>
@@ -436,38 +453,7 @@
 
         </div>
 
-        <div class="border-t border-yellow-500/20 mt-7 pt-6">
-          <p class="text-gray-300 text-sm">
-            O acesso será liberado após a confirmação do pagamento
-            e a verificação da participação.
-          </p>
-        </div>
-
       </div>
-
-      <p class="text-gray-500 text-xs max-w-xl mx-auto mt-7">
-        A participação está sujeita às regras dos grupos e à disponibilidade
-        de vagas. Consulte as condições de acesso antes de efetuar o pagamento.
-      </p>
-
-    </section>
-
-    <!-- ANUNCIAR -->
-    <section id="anunciar" class="max-w-5xl mx-auto px-5 py-16 text-center">
-
-      <p class="gold font-bold tracking-widest text-sm uppercase">Faça Parte da Rede</p>
-
-      <h2 class="text-3xl md:text-5xl font-black mt-3">
-        TEM UM VEÍCULO PARA <span class="gold-gradient">REPASSAR?</span>
-      </h2>
-
-      <p class="text-gray-400 mt-5 max-w-2xl mx-auto">
-        Entre em contato com a R.BRASIL para saber como divulgar sua oportunidade para centenas de compradores em todo o país.
-      </p>
-
-      <a href="#contato" class="gold-button inline-block px-9 py-4 rounded-lg mt-8">
-        QUERO ANUNCIAR
-      </a>
 
     </section>
 
@@ -481,17 +467,27 @@
         </h2>
 
         <p class="text-gray-400 mt-4">
-          Entre em contato para conhecer a rede, tirar dúvidas e acessar novas oportunidades.
+          Atendimento oficial e intermediação direta pelo WhatsApp.
         </p>
 
-        <p class="text-yellow-400 font-semibold text-sm mt-6">
-          <i class="fa-solid fa-headset mr-2"></i> Suporte oficial disponível para membros credenciados.
-        </p>
+        <a href="https://wa.me/5511958370146?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20atendimento%20da%20R.Brasil" 
+           target="_blank" 
+           class="wsp-button inline-flex items-center gap-2 px-8 py-4 rounded-xl mt-6 text-lg">
+          <i class="fa-brands fa-whatsapp text-2xl"></i>
+          <span>FALAR NO WHATSAPP: (11) 95837-0146</span>
+        </a>
 
       </div>
     </section>
 
   </main>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a href="https://wa.me/5511958370146?text=Ol%C3%A1%2C%20gostaria%20de%20vender%20meu%20carro%20ou%20saber%20mais%20sobre%20a%20R.Brasil!" 
+     target="_blank" 
+     class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 z-50 text-3xl">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <!-- RODAPÉ -->
   <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm px-5 bg-black">
