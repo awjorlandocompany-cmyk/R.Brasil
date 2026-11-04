@@ -7,13 +7,20 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Módulos do Firebase (v10) -->
+  <style>
+    body { background: #080808; color: white; font-family: 'Segoe UI', sans-serif; }
+    .gold-gradient { background: linear-gradient(180deg, #FFF066, #FFCC00, #D49B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .gold-button { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #080808; font-weight: 800; }
+    .card { background: #111; border: 1px solid rgba(255, 215, 0, .2); border-radius: 14px; }
+  </style>
+
+  <!-- SCRIPT COMPLETO DO FIREBASE (v10) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
     import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // ⚠️ SUBSTITUA COM AS SUAS CHAVES DO PASSO 3 AQUI:
+    // ⚠️ SUBSTITUA PELAS SUAS CHAVES DO FIREBASE CONSOLE:
     const firebaseConfig = {
       apiKey: "SUA_API_KEY_AQUI",
       authDomain: "SEU_PROJECT_ID.firebaseapp.com",
@@ -23,12 +30,12 @@
       appId: "SEU_APP_ID"
     };
 
-    // Inicializar Firebase
+    // Inicializar Firebase e Serviços
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Monitorar estado do login
+    // Monitoramento do Estado do Usuário (Persistência de Sessão)
     onAuthStateChanged(auth, (user) => {
       if (user) {
         document.getElementById('loginSection').classList.add('hidden');
@@ -50,16 +57,21 @@
       try {
         await signInWithEmailAndPassword(auth, email, pass);
       } catch (error) {
-        alert("Erro no login: Verifique seu e-mail e senha.");
+        alert("Erro no login: E-mail ou senha inválidos.");
+        console.error("Erro Auth:", error);
       }
     };
 
-    // Função de Sair (Logout)
+    // Função de Logout
     window.logout = () => signOut(auth);
 
-    // Função de Salvar Veículo no Firebase
+    // Salvar Novo Veículo no Firestore
     window.saveCar = async (e) => {
       e.preventDefault();
+      const btnSubmit = e.target.querySelector('button[type="submit"]');
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Salvando no Banco...`;
+
       const carData = {
         model: document.getElementById('carModel').value,
         year: document.getElementById('carYear').value,
@@ -73,24 +85,27 @@
 
       try {
         await addDoc(collection(db, "veiculos"), carData);
-        alert("Veículo cadastrado no banco de dados com sucesso!");
+        alert('Veículo cadastrado no Firebase com sucesso!');
         e.target.reset();
         carregarVeiculos();
       } catch (err) {
-        console.error("Erro ao salvar:", err);
-        alert("Erro ao cadastrar veículo.");
+        console.error("Erro ao salvar veículo:", err);
+        alert("Erro ao cadastrar veículo. Verifique as regras do Firestore.");
+      } finally {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = `<i class="fa-solid fa-cloud-arrow-up mr-2"></i> Cadastrar Veículo na Vitrine`;
       }
     };
 
-    // Carregar Veículos do Firebase
+    // Carregar Veículos do Firestore
     async function carregarVeiculos() {
       const container = document.getElementById('carsList');
-      container.innerHTML = '<p class="text-sm text-gray-500">Carregando estoque...</p>';
-      
+      container.innerHTML = '<p class="text-sm text-gray-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Carregando estoque do banco de dados...</p>';
+
       try {
         const q = query(collection(db, "veiculos"), orderBy("createdAt", "desc"));
         const querySnapshot = await getDocs(q);
-        
+
         if (querySnapshot.empty) {
           container.innerHTML = '<p class="text-sm text-gray-500">Nenhum veículo cadastrado no momento.</p>';
           return;
@@ -100,7 +115,7 @@
         querySnapshot.forEach((docSnap) => {
           const car = docSnap.data();
           const id = docSnap.id;
-          
+
           container.innerHTML += `
             <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl flex gap-4 items-center justify-between">
               <img src="${car.image}" alt="${car.model}" class="w-20 h-20 object-cover rounded-lg">
@@ -109,40 +124,35 @@
                 <p class="text-xs text-yellow-400 font-bold">Repasse: R$ ${car.repasse} <span class="text-gray-500 font-normal">(FIPE: R$ ${car.fipe})</span></p>
                 <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded border border-red-500/30">${car.margin} Margem</span>
               </div>
-              <button onclick="deleteCar('${id}')" class="text-red-500 hover:text-red-400 p-2">
+              <button onclick="deleteCar('${id}')" class="text-red-500 hover:text-red-400 p-2" title="Excluir Veículo">
                 <i class="fa-solid fa-trash-can text-lg"></i>
               </button>
             </div>
           `;
         });
       } catch (err) {
-        console.error("Erro ao carregar:", err);
+        console.error("Erro ao ler coleção 'veiculos':", err);
+        container.innerHTML = '<p class="text-sm text-red-400">Erro ao carregar veículos do banco de dados.</p>';
       }
     }
 
-    // Excluir Veículo do Firebase
+    // Excluir Veículo do Firestore
     window.deleteCar = async (id) => {
-      if (confirm("Deseja realmente apagar este veículo do site?")) {
+      if (confirm('Tem certeza que deseja remover este veículo do site?')) {
         try {
           await deleteDoc(doc(db, "veiculos", id));
           carregarVeiculos();
         } catch (err) {
-          alert("Erro ao apagar veículo.");
+          console.error("Erro ao apagar veículo:", err);
+          alert("Não foi possível excluir o veículo.");
         }
       }
     };
   </script>
-
-  <style>
-    body { background: #080808; color: white; font-family: 'Segoe UI', sans-serif; }
-    .gold-gradient { background: linear-gradient(180deg, #FFF066, #FFCC00, #D49B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .gold-button { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #080808; font-weight: 800; }
-    .card { background: #111; border: 1px solid rgba(255, 215, 0, .2); border-radius: 14px; }
-  </style>
 </head>
 <body class="p-4 md:p-8 min-h-screen flex flex-col justify-between">
 
-  <!-- CABEÇALHO -->
+  <!-- CABEÇALHO ADMIN -->
   <header class="max-w-6xl mx-auto w-full flex items-center justify-between border-b border-yellow-500/20 pb-4 mb-8">
     <div class="flex items-center gap-3">
       <img src="./R.Brasil Automotive Logo Banner.png" alt="R.Brasil" class="h-10 object-contain">
@@ -154,13 +164,13 @@
     </div>
   </header>
 
-  <!-- FORMULÁRIO DE LOGIN -->
+  <!-- TELA DE LOGIN -->
   <div id="loginSection" class="max-w-md mx-auto w-full card p-8 my-auto">
     <h2 class="text-2xl font-black text-center mb-6">Acesso <span class="gold-gradient">Restrito</span></h2>
     <form onsubmit="handleLogin(event)" class="space-y-4">
       <div>
         <label class="text-xs font-bold text-gray-400">E-mail do Administrador</label>
-        <input type="email" id="loginEmail" required placeholder="seuemail@exemplo.com" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
+        <input type="email" id="loginEmail" required placeholder="admin@rbrasil.com" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
       </div>
       <div>
         <label class="text-xs font-bold text-gray-400">Senha</label>
@@ -170,55 +180,70 @@
     </form>
   </div>
 
-  <!-- CONTEÚDO ADMIN -->
+  <!-- TELA DO PAINEL ADMIN (APÓS LOGIN) -->
   <main id="adminSection" class="hidden max-w-6xl mx-auto w-full space-y-8">
+    
+    <!-- FORMULÁRIO DE CADASTRO DE VEÍCULO -->
     <div class="card p-6 md:p-8">
-      <h2 class="text-xl font-black mb-4"><i class="fa-solid fa-plus-circle text-yellow-400 mr-2"></i> Cadastrar Novo Veículo</h2>
+      <h2 class="text-xl font-black mb-4"><i class="fa-solid fa-plus-circle text-yellow-400 mr-2"></i> Cadastrar Novo Veículo no Repasse</h2>
+      
       <form onsubmit="saveCar(event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="md:col-span-2">
           <label class="text-xs font-bold text-gray-400">Modelo do Veículo</label>
           <input type="text" id="carModel" required placeholder="Ex: Chevrolet Onix LTZ 1.0 Turbo" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div>
           <label class="text-xs font-bold text-gray-400">Ano / Modelo</label>
           <input type="text" id="carYear" required placeholder="Ex: 2022/2023" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div>
           <label class="text-xs font-bold text-gray-400">Valor Tabela FIPE (R$)</label>
           <input type="text" id="fipePrice" required placeholder="Ex: 78.500" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div>
           <label class="text-xs font-bold text-gray-400">Valor de Repasse (R$)</label>
           <input type="text" id="repassePrice" required placeholder="Ex: 64.400" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div>
           <label class="text-xs font-bold text-gray-400">Margem (%)</label>
           <input type="text" id="marginPercent" required placeholder="Ex: -18%" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div class="md:col-span-3">
-          <label class="text-xs font-bold text-gray-400">URL da Foto do Veículo</label>
+          <label class="text-xs font-bold text-gray-400">URL da Foto do Veículo (Link da Imagem)</label>
           <input type="url" id="imageUrl" required placeholder="https://..." class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div class="md:col-span-3">
-          <label class="text-xs font-bold text-gray-400">Detalhes</label>
-          <input type="text" id="details" placeholder="Ex: Completo, Automático, Único Dono" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
+          <label class="text-xs font-bold text-gray-400">Detalhes / Opcionais</label>
+          <input type="text" id="details" placeholder="Ex: Completo, Automático, Único Dono, Revisado" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
         </div>
+
         <div class="md:col-span-3 mt-2">
           <button type="submit" class="gold-button w-full py-4 rounded font-black text-sm uppercase">
-            <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Cadastrar no Firebase
+            <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Cadastrar Veículo na Vitrine
           </button>
         </div>
       </form>
     </div>
 
+    <!-- LISTAGEM E GERENCIAMENTO DOS CARROS -->
     <div class="card p-6">
       <h2 class="text-xl font-black mb-4"><i class="fa-solid fa-list text-yellow-400 mr-2"></i> Veículos Cadastrados no Banco</h2>
-      <div id="carsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      
+      <div id="carsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Os carros do Firestore serão exibidos dinamicamente aqui -->
+      </div>
     </div>
+
   </main>
 
   <footer class="text-center text-xs text-gray-600 mt-8">
-    © 2026 R.BRASIL — Painel de Controle Administrativo
+    &copy; 2026 R.BRASIL — Painel de Controle Administrativo
   </footer>
 
 </body>
