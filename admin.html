@@ -3,24 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel Admin | R.BRASIL REPASSE</title>
+
+  <title>R.BRASIL | Repasse de Veículos</title>
+  <meta name="description" content="R.BRASIL - Rede de oportunidades de repasse de veículos, conectando compradores e vendedores.">
+
+  <!-- Framework CSS Tailwind e Ícones FontAwesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    body { background: #080808; color: white; font-family: 'Segoe UI', sans-serif; }
-    .gold-gradient { background: linear-gradient(180deg, #FFF066, #FFCC00, #D49B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .gold-button { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #080808; font-weight: 800; }
-    .card { background: #111; border: 1px solid rgba(255, 215, 0, .2); border-radius: 14px; }
-  </style>
 
-  <!-- SCRIPT COMPLETO DO FIREBASE (v10) -->
+  <style>
+    body {
+      background: #080808;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .gold {
+      color: #FFD700;
+    }
+
+    .gold-gradient {
+      background: linear-gradient(180deg, #FFF066, #FFCC00, #D49B00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-button {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #080808;
+      font-weight: 800;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    }
+
+    .gold-button:hover {
+      background: linear-gradient(135deg, #FFE766 0%, #FFB733 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
+    }
+
+    .wsp-button {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      font-weight: 800;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .wsp-button:hover {
+      background: linear-gradient(135deg, #34E075 0%, #159E8E 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid rgba(255, 215, 0, .2);
+      border-radius: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 215, 0, .5);
+    }
+
+    .logo-banner-main {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(255, 215, 0, 0.15));
+    }
+
+    .logo-banner-nav {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .payment-card {
+      background: linear-gradient(145deg, #171717, #080808);
+      border: 1px solid rgba(255, 215, 0, .45);
+      border-radius: 18px;
+      box-shadow: 0 0 35px rgba(255, 215, 0, .1);
+    }
+
+    @media (max-width: 768px) {
+      .logo-banner-nav {
+        height: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU NAVEGAÇÃO -->
+  <header class="border-b border-yellow-500/20 bg-black/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4">
+
+      <a href="#inicio" class="flex items-center">
+        <img
+          src="./R.Brasil Automotive Logo Banner.png"
+          alt="R.BRASIL - Repasse de Veículos"
+          class="logo-banner-nav">
+      </a>
+
+      <nav class="flex flex-wrap items-center gap-5 text-sm font-bold">
+        <a href="#inicio" class="hover:text-yellow-400 transition">INÍCIO</a>
+        <a href="#veiculos" class="hover:text-yellow-400 transition gold">VEÍCULOS DE REPASSE</a>
+        <a href="#pagamento" class="hover:text-yellow-400 transition">PAGAMENTOS</a>
+        <a href="#anunciar" class="hover:text-yellow-400 transition">VENDER MEU CARRO</a>
+        <a href="#certificado" class="hover:text-yellow-400 transition">CERTIFICADO</a>
+        <a href="https://wa.me/5511958370146?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20R.Brasil" 
+           target="_blank" 
+           class="wsp-button px-4 py-2 rounded-lg flex items-center gap-2 text-xs uppercase">
+          <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- DESTAQUE PRINCIPAL -->
+    <section id="inicio" class="relative overflow-hidden pt-8 pb-12">
+      <div class="max-w-7xl mx-auto px-5 text-center flex flex-col items-center">
+
+        <div class="mb-6">
+          <img
+            src="./R.Brasil Automotive Logo Banner.png"
+            alt="R.BRASIL Repasse de Veículos"
+            class="logo-banner-main mx-auto rounded-xl">
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black leading-tight mt-2">
+          O MERCADO DE REPASSE<br>
+          <span class="gold-gradient">CONECTADO E CERTIFICADO.</span>
+        </h1>
+
+        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-5">
+          Oportunidades conectando compradores e lojistas.
+          Encontre abaixo os veículos disponíveis no repasse em tempo real.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a href="#veiculos" class="gold-button px-8 py-4 rounded-lg flex items-center gap-2 text-base">
+            <i class="fa-solid fa-car"></i> VER VEÍCULOS EM REPASSE
+          </a>
+          <a href="https://wa.me/5511958370146?text=Ol%C3%A1%2C%20quero%20vender%20meu%20carro%20pela%20R.Brasil!" 
+             target="_blank" 
+             class="wsp-button px-8 py-4 rounded-lg flex items-center gap-2 text-base">
+            <i class="fa-brands fa-whatsapp text-lg"></i> VENDER MEU CARRO
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VITRINE DE VEÍCULOS (DINÂMICA VIA FIREBASE) -->
+    <section id="veiculos" class="max-w-7xl mx-auto px-5 py-16">
+      <div class="text-center mb-12">
+        <p class="gold font-bold tracking-widest text-sm uppercase">Oportunidades Ativas</p>
+        <h2 class="text-3xl md:text-5xl font-black mt-2">
+          VEÍCULOS EM <span class="gold-gradient">REPASSE</span>
+        </h2>
+        <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+          Ofertas cadastradas diretamente no sistema. Margens competitivas abaixo da tabela FIPE.
+        </p>
+      </div>
+
+      <!-- Grid onde os carros do Firebase são carregados dinamicamente -->
+      <div id="grid-veiculos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="col-span-full text-center py-10">
+          <p class="text-gray-400 text-sm"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Carregando veículos disponíveis do banco de dados...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMAS DE PAGAMENTO -->
+    <section id="pagamento" class="max-w-6xl mx-auto px-5 py-16">
+      <div class="text-center mb-12">
+        <p class="gold font-bold tracking-widest text-sm uppercase">Facilidade & Segurança</p>
+        <h2 class="text-3xl md:text-5xl font-black mt-2">
+          FORMAS DE <span class="gold-gradient">PAGAMENTO</span>
+        </h2>
+        <p class="text-gray-400 mt-3 max-w-xl mx-auto">
+          Oferecemos condições flexíveis para fechar negócio com total transparência e agilidade.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- PIX à Vista -->
+        <div class="payment-card p-8 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl flex items-center justify-center text-yellow-400 text-3xl">
+              <i class="fa-solid fa-pix"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white">PIX à Vista</h3>
+            <p class="text-xs text-yellow-400 font-bold uppercase tracking-wider mt-1">Aprovação Imediata</p>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Transferência rápida e sem burocracia. Garanta a reserva do veículo de forma instantânea.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800">
+            <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-shield-halved text-yellow-500 mr-1"></i> Liberação rápida do veículo</span>
+          </div>
+        </div>
+
+        <!-- Cartão de Crédito -->
+        <div class="payment-card p-8 text-center flex flex-col justify-between border-yellow-500">
+          <div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl flex items-center justify-center text-yellow-400 text-3xl">
+              <i class="fa-solid fa-credit-card"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white">Cartão de Crédito</h3>
+            <p class="text-xs text-yellow-400 font-bold uppercase tracking-wider mt-1">Parcelamento Facilitado</p>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Aceitamos as principais bandeiras com opção de parcelamento direto via maquininha ou link seguro.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800">
+            <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-lock text-yellow-500 mr-1"></i> Transação 100% Protegida</span>
+          </div>
+        </div>
+
+        <!-- Mercado Pago -->
+        <div class="payment-card p-8 text-center flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl flex items-center justify-center text-yellow-400 text-3xl">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white">Mercado Pago</h3>
+            <p class="text-xs text-yellow-400 font-bold uppercase tracking-wider mt-1">Garantia & Custódia</p>
+            <p class="text-gray-400 text-sm mt-4 leading-relaxed">
+              Pagamento processado com a segurança e o suporte da maior plataforma de pagamentos da América Latina.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800">
+            <span class="text-xs text-gray-500 font-medium"><i class="fa-solid fa-check-double text-yellow-500 mr-1"></i> Intermediação Segura</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERMEDIAÇÃO E WHATSAPP AUTOMÁTICO -->
+    <section id="anunciar" class="max-w-5xl mx-auto px-5 py-16 text-center">
+      <div class="card p-8 md:p-12 relative overflow-hidden border-2 border-yellow-500/50">
+        <p class="gold font-bold tracking-widest text-sm uppercase">Quer Vender Seu Carro?</p>
+        <h2 class="text-3xl md:text-5xl font-black mt-3">
+          NÓS FAZEMOS A <span class="gold-gradient">INTERMEDIAÇÃO</span>
+        </h2>
+        <p class="text-gray-300 text-base md:text-lg mt-5 max-w-3xl mx-auto leading-relaxed">
+          Temos uma rede ativa com <strong>mais de 100 lojistas credenciados</strong> prontos para comprar seu veículo rapidamente. Envie os dados no nosso WhatsApp e ative o atendimento automático agora mesmo!
+        </p>
+        <div class="mt-8 flex justify-center items-center">
+          <a href="https://wa.me/5511958370146?text=Olá%2C%20tenho%20um%20veículo%20e%20quero%20vender%20pela%20intermediação%20da%20R.Brasil!" 
+             target="_blank" 
+             class="wsp-button text-lg px-8 py-5 rounded-xl flex items-center gap-3 w-full sm:w-auto justify-center">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span>VENDER MEU CARRO PELO WHATSAPP</span>
+          </a>
+        </div>
+        <p class="text-xs text-gray-400 mt-4">
+          <i class="fa-solid fa-bolt text-yellow-400"></i> Atendimento automático 24/7 pelo número: <strong>(11) 95837-0146</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- SELO DE CERTIFICADO COM QR CODE DE VALIDAÇÃO -->
+    <section id="certificado" class="max-w-5xl mx-auto px-5 py-12 text-center">
+      <p class="gold font-bold tracking-widest text-sm uppercase mb-2">Garantia & Procedência</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-8">
+        PLATAFORMA <span class="gold-gradient">CERTIFICADA</span>
+      </h2>
+
+      <div class="max-w-md mx-auto bg-gradient-to-b from-[#1c1917] via-black to-black border-2 border-yellow-500/80 rounded-2xl p-8 text-center shadow-2xl shadow-yellow-500/10 relative overflow-hidden">
+        <img src="./R.Brasil Automotive Logo Banner.png" alt="Selo R.Brasil" class="h-16 mx-auto mb-4 object-contain">
+
+        <div class="relative inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-yellow-500/10 border border-yellow-400 text-yellow-400">
+          <i class="fa-solid fa-award text-3xl"></i>
+        </div>
+
+        <h4 class="text-xs tracking-widest text-yellow-400 uppercase font-bold">Selo Oficial de Segurança</h4>
+        <h3 class="text-xl font-extrabold text-white tracking-wide uppercase mt-1">EMPRESA CERTIFICADA</h3>
+        
+        <div class="w-16 h-0.5 bg-yellow-500 mx-auto my-3"></div>
+
+        <p class="text-sm text-gray-300 font-medium">Rede Autêntica • Negócios Seguros • Intermediação com Lojistas</p>
+
+        <!-- QR CODE DINÂMICO PARA APONTAR DIRETO AO SEU WHATSAPP DE ATENDIMENTO -->
+        <div class="mt-6 p-4 bg-zinc-900/80 border border-yellow-500/30 rounded-xl inline-block">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/5511958370146" alt="QR Code de Validação WhatsApp R.Brasil" class="w-32 h-32 mx-auto rounded border border-yellow-500/50">
+          <p class="text-[11px] text-gray-400 mt-2 font-medium">Escaneie para validar a autenticidade</p>
+        </div>
+
+        <div class="mt-5 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+          <p class="text-xs text-yellow-300 font-semibold">
+            <i class="fa-solid fa-circle-check mr-1"></i> Credenciamento Ativo para Compra e Venda de Veículos
+          </p>
+        </div>
+
+        <span class="inline-block mt-5 px-4 py-1.5 bg-yellow-500 text-black text-xs font-black uppercase rounded-full tracking-wider shadow-lg">
+          GARANTIA DE PROCEDÊNCIA
+        </span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5511958370146?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20veículos%20em%20repasse%20da%20R.Brasil!" 
+     target="_blank" 
+     class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 z-50 text-3xl">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- RODAPÉ -->
+  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm px-5 bg-black">
+    <p>© 2026 R.BRASIL — REPASSE DE VEÍCULOS. Todos os direitos reservados.</p>
+    <p class="mt-2 text-xs text-gray-600">
+      A R.BRASIL conecta compradores e vendedores. A negociação e a avaliação de cada veículo são de inteira responsabilidade das partes.
+    </p>
+  </footer>
+
+  <!-- INTEGRADOR COM FIRESTORE -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // ⚠️ SUBSTITUA PELAS SUAS CHAVES DO FIREBASE CONSOLE:
+    // Insira suas chaves do Firebase aqui
     const firebaseConfig = {
       apiKey: "SUA_API_KEY_AQUI",
       authDomain: "SEU_PROJECT_ID.firebaseapp.com",
@@ -30,221 +347,66 @@
       appId: "SEU_APP_ID"
     };
 
-    // Inicializar Firebase e Serviços
     const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Monitoramento do Estado do Usuário (Persistência de Sessão)
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        document.getElementById('loginSection').classList.add('hidden');
-        document.getElementById('adminSection').classList.remove('hidden');
-        document.getElementById('userInfo').classList.remove('hidden');
-        carregarVeiculos();
-      } else {
-        document.getElementById('loginSection').classList.remove('hidden');
-        document.getElementById('adminSection').classList.add('hidden');
-        document.getElementById('userInfo').classList.add('hidden');
-      }
-    });
-
-    // Função de Login
-    window.handleLogin = async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const pass = document.getElementById('loginPassword').value;
-      try {
-        await signInWithEmailAndPassword(auth, email, pass);
-      } catch (error) {
-        alert("Erro no login: E-mail ou senha inválidos.");
-        console.error("Erro Auth:", error);
-      }
-    };
-
-    // Função de Logout
-    window.logout = () => signOut(auth);
-
-    // Salvar Novo Veículo no Firestore
-    window.saveCar = async (e) => {
-      e.preventDefault();
-      const btnSubmit = e.target.querySelector('button[type="submit"]');
-      btnSubmit.disabled = true;
-      btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Salvando no Banco...`;
-
-      const carData = {
-        model: document.getElementById('carModel').value,
-        year: document.getElementById('carYear').value,
-        fipe: document.getElementById('fipePrice').value,
-        repasse: document.getElementById('repassePrice').value,
-        margin: document.getElementById('marginPercent').value,
-        image: document.getElementById('imageUrl').value,
-        details: document.getElementById('details').value,
-        createdAt: serverTimestamp()
-      };
-
-      try {
-        await addDoc(collection(db, "veiculos"), carData);
-        alert('Veículo cadastrado no Firebase com sucesso!');
-        e.target.reset();
-        carregarVeiculos();
-      } catch (err) {
-        console.error("Erro ao salvar veículo:", err);
-        alert("Erro ao cadastrar veículo. Verifique as regras do Firestore.");
-      } finally {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = `<i class="fa-solid fa-cloud-arrow-up mr-2"></i> Cadastrar Veículo na Vitrine`;
-      }
-    };
-
-    // Carregar Veículos do Firestore
-    async function carregarVeiculos() {
-      const container = document.getElementById('carsList');
-      container.innerHTML = '<p class="text-sm text-gray-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Carregando estoque do banco de dados...</p>';
-
+    async function carregarVitrine() {
+      const grid = document.getElementById('grid-veiculos');
       try {
         const q = query(collection(db, "veiculos"), orderBy("createdAt", "desc"));
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
-          container.innerHTML = '<p class="text-sm text-gray-500">Nenhum veículo cadastrado no momento.</p>';
+          grid.innerHTML = '<div class="col-span-full text-center py-10 text-gray-500">Nenhum veículo em repasse cadastrado no momento. Acesse o painel admin para cadastrar.</div>';
           return;
         }
 
-        container.innerHTML = "";
-        querySnapshot.forEach((docSnap) => {
-          const car = docSnap.data();
-          const id = docSnap.id;
-
-          container.innerHTML += `
-            <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-xl flex gap-4 items-center justify-between">
-              <img src="${car.image}" alt="${car.model}" class="w-20 h-20 object-cover rounded-lg">
-              <div class="flex-grow">
-                <h4 class="font-bold text-sm text-white">${car.model} (${car.year})</h4>
-                <p class="text-xs text-yellow-400 font-bold">Repasse: R$ ${car.repasse} <span class="text-gray-500 font-normal">(FIPE: R$ ${car.fipe})</span></p>
-                <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded border border-red-500/30">${car.margin} Margem</span>
+        grid.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+          const car = doc.data();
+          grid.innerHTML += `
+            <div class="card overflow-hidden flex flex-col justify-between">
+              <div class="relative">
+                <img src="${car.image}" alt="${car.model}" class="w-full h-48 object-cover">
+                <span class="absolute top-3 right-3 bg-red-600 text-white font-black text-xs px-3 py-1 rounded-full shadow-lg">
+                  ${car.margin} Margem
+                </span>
               </div>
-              <button onclick="deleteCar('${id}')" class="text-red-500 hover:text-red-400 p-2" title="Excluir Veículo">
-                <i class="fa-solid fa-trash-can text-lg"></i>
-              </button>
+              <div class="p-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <div class="flex justify-between items-start">
+                    <h3 class="font-extrabold text-lg text-white">${car.model}</h3>
+                    <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold">${car.year}</span>
+                  </div>
+                  <p class="text-xs text-gray-400 mt-1">${car.details || 'Veículo de Repasse'}</p>
+                  
+                  <div class="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center text-sm">
+                    <div>
+                      <span class="text-gray-500 text-xs block">Tabela FIPE:</span>
+                      <span class="text-gray-300 line-through font-semibold">R$ ${car.fipe}</span>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-yellow-400 text-xs block font-bold">REPASSE:</span>
+                      <span class="text-xl font-black text-white">R$ ${car.repasse}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <a href="https://wa.me/5511958370146?text=Olá! Tenho interesse no veículo ${encodeURIComponent(car.model)} (Repasse R$ ${car.repasse})." target="_blank" class="wsp-button w-full mt-5 py-3 rounded-xl text-center text-xs uppercase flex items-center justify-center gap-2">
+                  <i class="fa-brands fa-whatsapp text-base"></i> Reservar / Comprar
+                </a>
+              </div>
             </div>
           `;
         });
-      } catch (err) {
-        console.error("Erro ao ler coleção 'veiculos':", err);
-        container.innerHTML = '<p class="text-sm text-red-400">Erro ao carregar veículos do banco de dados.</p>';
+      } catch (e) {
+        console.error("Erro ao carregar vitrine:", e);
+        grid.innerHTML = '<div class="col-span-full text-center py-10 text-red-400">Erro ao carregar os veículos do banco de dados.</div>';
       }
     }
 
-    // Excluir Veículo do Firestore
-    window.deleteCar = async (id) => {
-      if (confirm('Tem certeza que deseja remover este veículo do site?')) {
-        try {
-          await deleteDoc(doc(db, "veiculos", id));
-          carregarVeiculos();
-        } catch (err) {
-          console.error("Erro ao apagar veículo:", err);
-          alert("Não foi possível excluir o veículo.");
-        }
-      }
-    };
+    carregarVitrine();
   </script>
-</head>
-<body class="p-4 md:p-8 min-h-screen flex flex-col justify-between">
-
-  <!-- CABEÇALHO ADMIN -->
-  <header class="max-w-6xl mx-auto w-full flex items-center justify-between border-b border-yellow-500/20 pb-4 mb-8">
-    <div class="flex items-center gap-3">
-      <img src="./R.Brasil Automotive Logo Banner.png" alt="R.Brasil" class="h-10 object-contain">
-      <h1 class="text-xl font-black">Painel <span class="gold-gradient">Administrador</span></h1>
-    </div>
-    <div id="userInfo" class="hidden flex items-center gap-4">
-      <span class="text-xs text-gray-400"><i class="fa-solid fa-user-shield text-yellow-400"></i> Admin Conectado</span>
-      <button onclick="logout()" class="text-xs text-red-400 border border-red-500/30 px-3 py-1 rounded hover:bg-red-500/10">Sair</button>
-    </div>
-  </header>
-
-  <!-- TELA DE LOGIN -->
-  <div id="loginSection" class="max-w-md mx-auto w-full card p-8 my-auto">
-    <h2 class="text-2xl font-black text-center mb-6">Acesso <span class="gold-gradient">Restrito</span></h2>
-    <form onsubmit="handleLogin(event)" class="space-y-4">
-      <div>
-        <label class="text-xs font-bold text-gray-400">E-mail do Administrador</label>
-        <input type="email" id="loginEmail" required placeholder="admin@rbrasil.com" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-      </div>
-      <div>
-        <label class="text-xs font-bold text-gray-400">Senha</label>
-        <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-      </div>
-      <button type="submit" class="gold-button w-full py-3 rounded font-black text-sm uppercase mt-4">Entrar no Painel</button>
-    </form>
-  </div>
-
-  <!-- TELA DO PAINEL ADMIN (APÓS LOGIN) -->
-  <main id="adminSection" class="hidden max-w-6xl mx-auto w-full space-y-8">
-    
-    <!-- FORMULÁRIO DE CADASTRO DE VEÍCULO -->
-    <div class="card p-6 md:p-8">
-      <h2 class="text-xl font-black mb-4"><i class="fa-solid fa-plus-circle text-yellow-400 mr-2"></i> Cadastrar Novo Veículo no Repasse</h2>
-      
-      <form onsubmit="saveCar(event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="md:col-span-2">
-          <label class="text-xs font-bold text-gray-400">Modelo do Veículo</label>
-          <input type="text" id="carModel" required placeholder="Ex: Chevrolet Onix LTZ 1.0 Turbo" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-400">Ano / Modelo</label>
-          <input type="text" id="carYear" required placeholder="Ex: 2022/2023" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-400">Valor Tabela FIPE (R$)</label>
-          <input type="text" id="fipePrice" required placeholder="Ex: 78.500" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-400">Valor de Repasse (R$)</label>
-          <input type="text" id="repassePrice" required placeholder="Ex: 64.400" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-400">Margem (%)</label>
-          <input type="text" id="marginPercent" required placeholder="Ex: -18%" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div class="md:col-span-3">
-          <label class="text-xs font-bold text-gray-400">URL da Foto do Veículo (Link da Imagem)</label>
-          <input type="url" id="imageUrl" required placeholder="https://..." class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div class="md:col-span-3">
-          <label class="text-xs font-bold text-gray-400">Detalhes / Opcionais</label>
-          <input type="text" id="details" placeholder="Ex: Completo, Automático, Único Dono, Revisado" class="w-full mt-1 bg-zinc-900 border border-zinc-700 rounded p-3 text-sm focus:border-yellow-400 outline-none">
-        </div>
-
-        <div class="md:col-span-3 mt-2">
-          <button type="submit" class="gold-button w-full py-4 rounded font-black text-sm uppercase">
-            <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Cadastrar Veículo na Vitrine
-          </button>
-        </div>
-      </form>
-    </div>
-
-    <!-- LISTAGEM E GERENCIAMENTO DOS CARROS -->
-    <div class="card p-6">
-      <h2 class="text-xl font-black mb-4"><i class="fa-solid fa-list text-yellow-400 mr-2"></i> Veículos Cadastrados no Banco</h2>
-      
-      <div id="carsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <!-- Os carros do Firestore serão exibidos dinamicamente aqui -->
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="text-center text-xs text-gray-600 mt-8">
-    &copy; 2026 R.BRASIL — Painel de Controle Administrativo
-  </footer>
 
 </body>
 </html>
