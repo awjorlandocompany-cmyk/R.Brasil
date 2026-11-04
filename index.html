@@ -14,7 +14,7 @@
     body {
       background: #080808;
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     html {
@@ -36,33 +36,41 @@
     }
 
     .gold-button {
-      background: #FFD700;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
       color: #080808;
       font-weight: 800;
-      transition: .2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
     }
 
     .gold-button:hover {
-      background: #ffe766;
+      background: linear-gradient(135deg, #FFE766 0%, #FFB733 100%);
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
     }
 
     .card {
       background: #111;
       border: 1px solid rgba(255, 215, 0, .2);
       border-radius: 14px;
+      transition: border-color 0.3s ease;
     }
 
-    .logo-link {
-      display: inline-flex;
-      align-items: center;
+    .card:hover {
+      border-color: rgba(255, 215, 0, .5);
     }
 
-    .logo-img {
-      display: block;
-      width: 260px;
-      max-width: 100%;
+    .logo-banner-main {
+      width: 100%;
+      max-width: 650px;
       height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(255, 215, 0, 0.15));
+    }
+
+    .logo-banner-nav {
+      height: 50px;
+      width: auto;
       object-fit: contain;
     }
 
@@ -70,12 +78,12 @@
       background: linear-gradient(145deg, #171717, #080808);
       border: 1px solid rgba(255, 215, 0, .45);
       border-radius: 18px;
-      box-shadow: 0 0 35px rgba(255, 215, 0, .07);
+      box-shadow: 0 0 35px rgba(255, 215, 0, .1);
     }
 
     @media (max-width: 768px) {
-      .logo-img {
-        width: 190px;
+      .logo-banner-nav {
+        height: 38px;
       }
     }
   </style>
@@ -83,24 +91,25 @@
 
 <body>
 
-  <!-- MENU -->
-  <header class="border-b border-yellow-500/20 bg-black">
-    <div class="max-w-7xl mx-auto px-5 py-5 flex flex-wrap items-center justify-between gap-4">
+  <!-- MENU NAVEGAÇÃO -->
+  <header class="border-b border-yellow-500/20 bg-black/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4">
 
-      <a href="#inicio" class="logo-link">
+      <a href="#inicio" class="flex items-center">
         <img
           src="./R.Brasil Automotive Logo Banner.png"
           alt="R.BRASIL - Repasse de Veículos"
-          class="logo-img">
+          class="logo-banner-nav">
       </a>
 
       <nav class="flex flex-wrap gap-5 text-sm font-bold">
-        <a href="#inicio" class="hover:text-yellow-400">INÍCIO</a>
-        <a href="#como-funciona" class="hover:text-yellow-400">COMO FUNCIONA</a>
-        <a href="#depoimentos" class="hover:text-yellow-400">DEPOIMENTOS</a>
-        <a href="#pagamento" class="hover:text-yellow-400">ACESSAR GRUPOS</a>
-        <a href="#anunciar" class="hover:text-yellow-400">ANUNCIAR</a>
-        <a href="#contato" class="hover:text-yellow-400">CONTATO</a>
+        <a href="#inicio" class="hover:text-yellow-400 transition">INÍCIO</a>
+        <a href="#como-funciona" class="hover:text-yellow-400 transition">COMO FUNCIONA</a>
+        <a href="#certificado" class="hover:text-yellow-400 transition">CERTIFICADO</a>
+        <a href="#depoimentos" class="hover:text-yellow-400 transition">DEPOIMENTOS</a>
+        <a href="#pagamento" class="hover:text-yellow-400 transition">ACESSAR GRUPOS</a>
+        <a href="#anunciar" class="hover:text-yellow-400 transition">ANUNCIAR</a>
+        <a href="#contato" class="hover:text-yellow-400 transition">CONTATO</a>
       </nav>
 
     </div>
@@ -108,30 +117,34 @@
 
   <main>
 
-    <!-- DESTAQUE PRINCIPAL -->
-    <section id="inicio" class="relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-5 py-20 md:py-28 text-center">
+    <!-- DESTAQUE PRINCIPAL COM A LOGO EM DESTAQUE -->
+    <section id="inicio" class="relative overflow-hidden pt-8 pb-16">
+      <div class="max-w-7xl mx-auto px-5 text-center flex flex-col items-center">
 
-        <p class="gold font-bold tracking-[.3em] text-sm mb-5">
-          REPASSE DE VEÍCULOS
-        </p>
+        <!-- LOGO OFICIAL EM GRANDE DESTAQUE -->
+        <div class="mb-6">
+          <img
+            src="./R.Brasil Automotive Logo Banner.png"
+            alt="R.BRASIL Repasse de Veículos"
+            class="logo-banner-main mx-auto rounded-xl">
+        </div>
 
-        <h1 class="text-5xl md:text-7xl font-black leading-tight">
+        <h1 class="text-4xl md:text-6xl font-black leading-tight mt-2">
           O MERCADO DE REPASSE<br>
-          <span class="gold-gradient">CONECTADO.</span>
+          <span class="gold-gradient">CONECTADO E CERTIFICADO.</span>
         </h1>
 
-        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-7">
+        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mt-5">
           Oportunidades conectando compradores e vendedores.
-          Encontre veículos, anuncie oportunidades e amplie sua rede de negócios.
+          Encontre veículos, anuncie oportunidades e amplie sua rede de negócios com procedência garantida.
         </p>
 
-        <div class="flex flex-wrap justify-center gap-4 mt-10">
-          <a href="#anunciar" class="gold-button px-8 py-4 rounded-lg">
-            ANUNCIAR VEÍCULO
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a href="#anunciar" class="gold-button px-8 py-4 rounded-lg flex items-center gap-2">
+            <i class="fa-solid fa-car"></i> ANUNCIAR VEÍCULO
           </a>
 
-          <a href="#como-funciona" class="gold-border px-8 py-4 rounded-lg font-bold hover:bg-yellow-500/10">
+          <a href="#como-funciona" class="gold-border px-8 py-4 rounded-lg font-bold hover:bg-yellow-500/10 transition">
             CONHECER A R.BRASIL
           </a>
         </div>
@@ -139,39 +152,39 @@
       </div>
     </section>
 
-    <!-- BENEFÍCIOS -->
+    <!-- BENEFÍCIOS / PILARES -->
     <section class="max-w-7xl mx-auto px-5 pb-16">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-handshake gold text-3xl mb-4"></i>
-          <h3 class="font-extrabold">GRUPOS DE REPASSE</h3>
-          <p class="text-gray-400 text-sm mt-2">
-            Conexões entre compradores e vendedores.
+          <h3 class="font-extrabold uppercase text-sm md:text-base">GRUPOS DE REPASSE</h3>
+          <p class="text-gray-400 text-xs md:text-sm mt-2">
+            Conexões diretas entre compradores e vendedores.
           </p>
         </div>
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-car gold text-3xl mb-4"></i>
-          <h3 class="font-extrabold">OPORTUNIDADES</h3>
-          <p class="text-gray-400 text-sm mt-2">
-            Veículos e ofertas divulgadas na rede.
+          <h3 class="font-extrabold uppercase text-sm md:text-base">OFERTAS EXCLUSIVAS</h3>
+          <p class="text-gray-400 text-xs md:text-sm mt-2">
+            Veículos com margem para revenda e repasse.
           </p>
         </div>
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-shield-halved gold text-3xl mb-4"></i>
-          <h3 class="font-extrabold">NEGÓCIOS COM ATENÇÃO</h3>
-          <p class="text-gray-400 text-sm mt-2">
-            Informações para ajudar na negociação.
+          <h3 class="font-extrabold uppercase text-sm md:text-base">NEGÓCIOS SEGUROS</h3>
+          <p class="text-gray-400 text-xs md:text-sm mt-2">
+            Verificação rigorosa e suporte na negociação.
           </p>
         </div>
 
         <div class="card p-6 text-center">
           <i class="fa-solid fa-bolt gold text-3xl mb-4"></i>
-          <h3 class="font-extrabold">MAIS CONEXÕES</h3>
-          <p class="text-gray-400 text-sm mt-2">
-            Amplie sua rede no mercado automotivo.
+          <h3 class="font-extrabold uppercase text-sm md:text-base">REALIZE SEU NEGÓCIO</h3>
+          <p class="text-gray-400 text-xs md:text-sm mt-2">
+            Giro rápido de estoque e expansão de contatos.
           </p>
         </div>
 
@@ -182,40 +195,40 @@
     <section id="como-funciona" class="bg-zinc-950 border-y border-yellow-500/20">
       <div class="max-w-6xl mx-auto px-5 py-20 text-center">
 
-        <p class="gold font-bold tracking-widest text-sm">R.BRASIL</p>
+        <p class="gold font-bold tracking-widest text-sm uppercase">Rede Credenciada</p>
 
         <h2 class="text-3xl md:text-5xl font-black mt-3">
           COMO <span class="gold-gradient">FUNCIONA</span>
         </h2>
 
         <p class="text-gray-400 max-w-2xl mx-auto mt-5">
-          Um ambiente para aproximar pessoas que trabalham com compra,
-          venda e repasse de veículos.
+          Um ambiente profissional para aproximar especialistas que trabalham com compra,
+          venda e repasse de veículos no Brasil.
         </p>
 
         <div class="grid md:grid-cols-3 gap-6 mt-12 text-left">
 
           <div class="card p-7">
             <span class="gold text-3xl font-black">01</span>
-            <h3 class="font-bold text-xl mt-4">Encontre oportunidades</h3>
+            <h3 class="font-bold text-xl mt-4">Encontre Oportunidades</h3>
             <p class="text-gray-400 mt-3">
-              Veja anúncios e informações de veículos disponíveis.
+              Acesse diariamente listagens exclusivas de veículos com preços de repasse.
             </p>
           </div>
 
           <div class="card p-7">
             <span class="gold text-3xl font-black">02</span>
-            <h3 class="font-bold text-xl mt-4">Conecte-se</h3>
+            <h3 class="font-bold text-xl mt-4">Conecte-se com Segurança</h3>
             <p class="text-gray-400 mt-3">
-              Entre em contato com quem anunciou o veículo.
+              Negocie diretamente com lojistas e revendedores credenciados na rede.
             </p>
           </div>
 
           <div class="card p-7">
             <span class="gold text-3xl font-black">03</span>
-            <h3 class="font-bold text-xl mt-4">Negocie com cuidado</h3>
+            <h3 class="font-bold text-xl mt-4">Feche Negócios Rápidos</h3>
             <p class="text-gray-400 mt-3">
-              Confira documentos, condições e procedência antes de fechar.
+              Receba suporte completo, verificação e dados de procedência para garantir seu lucro.
             </p>
           </div>
 
@@ -223,132 +236,148 @@
       </div>
     </section>
 
-    <!-- SELO DE CERTIFICADO E SEGURANÇA -->
-    <section class="max-w-5xl mx-auto px-5 pt-16 pb-8 text-center">
-      <div class="max-w-xs mx-auto bg-gradient-to-b from-[#1c1917] to-black border-2 border-yellow-500/80 rounded-2xl p-6 text-center shadow-xl shadow-yellow-500/10 relative overflow-hidden">
-        <div class="absolute -top-10 -left-10 w-24 h-24 bg-yellow-500/20 rounded-full blur-xl pointer-events-none"></div>
+    <!-- SELO DE CERTIFICADO E GARANTIA -->
+    <section id="certificado" class="max-w-5xl mx-auto px-5 py-16 text-center">
+      
+      <p class="gold font-bold tracking-widest text-sm uppercase mb-2">Garantia & Procedência</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-8">
+        PLATAFORMA <span class="gold-gradient">CERTIFICADA</span>
+      </h2>
 
-        <div class="relative inline-flex items-center justify-center w-16 h-16 mb-3 rounded-full bg-yellow-500/10 border border-yellow-400 text-yellow-400">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-          </svg>
+      <div class="max-w-md mx-auto bg-gradient-to-b from-[#1c1917] via-black to-black border-2 border-yellow-500/80 rounded-2xl p-8 text-center shadow-2xl shadow-yellow-500/10 relative overflow-hidden">
+        <!-- Efeito Dourado de Fundo -->
+        <div class="absolute -top-12 -left-12 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Logo Pequena no Certificado -->
+        <img src="./R.Brasil Automotive Logo Banner.png" alt="Selo R.Brasil" class="h-16 mx-auto mb-4 object-contain">
+
+        <div class="relative inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-yellow-500/10 border border-yellow-400 text-yellow-400">
+          <i class="fa-solid fa-award text-3xl"></i>
         </div>
 
-        <h4 class="text-[10px] tracking-widest text-yellow-400 uppercase font-semibold">Selo de Qualidade</h4>
-        <h3 class="text-base font-extrabold text-white tracking-wide uppercase mt-1">EMPRESA CERTIFICADA</h3>
+        <h4 class="text-xs tracking-widest text-yellow-400 uppercase font-bold">Selo Oficial de Segurança</h4>
+        <h3 class="text-xl font-extrabold text-white tracking-wide uppercase mt-1">EMPRESA CERTIFICADA</h3>
         
-        <div class="w-12 h-0.5 bg-yellow-500 mx-auto my-2"></div>
+        <div class="w-16 h-0.5 bg-yellow-500 mx-auto my-3"></div>
 
-        <p class="text-xs text-gray-300 font-medium">Plataforma Verificada & Negócios Seguros</p>
-        <span class="inline-block mt-3 px-3 py-1 bg-yellow-500 text-black text-[10px] font-black uppercase rounded-full tracking-wider">
-          Garantia & Procedência
+        <p class="text-sm text-gray-300 font-medium">Rede Autêntica • Negócios Seguros • Procedência Verificada</p>
+        
+        <div class="mt-5 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+          <p class="text-xs text-yellow-300 font-semibold">
+            <i class="fa-solid fa-circle-check mr-1"></i> Credenciamento Ativo para Compra e Venda de Veículos
+          </p>
+        </div>
+
+        <span class="inline-block mt-5 px-4 py-1.5 bg-yellow-500 text-black text-xs font-black uppercase rounded-full tracking-wider shadow-lg">
+          GARANTIA DE PROCEDÊNCIA
         </span>
       </div>
     </section>
 
-    <!-- DEPOIMENTOS E COMENTÁRIOS -->
-    <section id="depoimentos" class="max-w-6xl mx-auto px-5 py-12">
-      <div class="text-center mb-10">
-        <p class="gold font-bold tracking-widest text-sm">AVALIAÇÕES</p>
-        <h2 class="text-3xl md:text-5xl font-black mt-2">
-          O QUE DIZEM NOSSOS <span class="gold-gradient">PARCEIROS</span>
-        </h2>
-        <p class="text-gray-400 mt-3 max-w-xl mx-auto">
-          Confira os depoimentos de lojistas, revendedores e compradores da rede R.BRASIL.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- DEPOIMENTOS DE CLIENTES E LOJISTAS -->
+    <section id="depoimentos" class="bg-zinc-950 border-t border-yellow-500/20 py-16">
+      <div class="max-w-6xl mx-auto px-5">
         
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Excelente plataforma para repasse! Já fiz 4 negociações através dos grupos e todas foram super rápidas e transparentes. Recomendo de olhos fechados."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Carlos Eduardo — Lojista (SP)</span>
+        <div class="text-center mb-12">
+          <p class="gold font-bold tracking-widest text-sm uppercase">Avaliações Reais</p>
+          <h2 class="text-3xl md:text-5xl font-black mt-2">
+            O QUE DIZEM NOSSOS <span class="gold-gradient">PARCEIROS</span>
+          </h2>
+          <p class="text-gray-400 mt-3 max-w-xl mx-auto">
+            Confira a experiência de quem já faz negócios diariamente na rede R.BRASIL.
+          </p>
         </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Excelente plataforma para repasse! Já fiz 4 negociações através dos grupos e todas foram super rápidas e transparentes. Recomendo de olhos fechados."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Carlos Eduardo — Lojista (SP)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"As ofertas são realmente exclusivas e com margem excelente para revenda. A R.Brasil facilitou muito o meu dia a dia de compras."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Marcos Vinícius — Comprador (MG)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"As ofertas são realmente exclusivas e com margem excelente para revenda. A R.Brasil facilitou muito o meu dia a dia de compras."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Marcos Vinícius — Comprador (MG)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Atendimento impecável e total segurança nas transações. É muito difícil achar um serviço de repasse tão sério e organizado no mercado."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Renata Silveira — Investidora (PR)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Atendimento impecável e total segurança nas transações. É muito difícil achar um serviço de repasse tão sério e organizado no mercado."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Renata Silveira — Investidora (PR)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Consegui girar meu estoque em tempo recorde. Conectar compradores e vendedores de forma direta é o grande diferencial da R.Brasil."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Felipe Ribeiro — Revendedor (RJ)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Consegui girar meu estoque em tempo recorde. Conectar compradores e vendedores de forma direta é o grande diferencial da R.Brasil."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Felipe Ribeiro — Revendedor (RJ)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"A transparência na descrição dos veículos e o suporte nas negociações passam muita confiança. Parceria garantida!"</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Thiago Mendes — Lojista (SC)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"A transparência na descrição dos veículos e o suporte nas negociações passam muita confiança. Parceria garantida!"</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Thiago Mendes — Lojista (SC)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Plataforma nota 10! Consegui arrematar um ótimo veículo com valor bem abaixo da tabela para minha loja."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Juliana Castro — Compradora (RS)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Plataforma nota 10! Consegui arrematar um ótimo veículo com valor bem abaixo da tabela para minha loja."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Juliana Castro — Compradora (RS)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"O grupo de repasse deles é dinâmico e direto ao ponto. Sem enrolação, oportunidades reais aparecendo diariamente."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Lucas Alencar — Revendedor (GO)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"O grupo de repasse deles é dinâmico e direto ao ponto. Sem enrolação, oportunidades reais aparecendo diariamente."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Lucas Alencar — Revendedor (GO)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Segurança em primeiro lugar. Fazer negócio sabendo que há verificação e procedimentos claros faz toda a diferença."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Rodrigo Santoro — Lojista (BA)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Segurança em primeiro lugar. Fazer negócio sabendo que há verificação e procedimentos claros faz toda a diferença."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Rodrigo Santoro — Lojista (BA)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Já uso há mais de 6 meses e não troco. Agilidade no fechamento dos contratos e veículos de procedência."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">André Luiz — Comprador (DF)</span>
-        </div>
 
-        <div class="card p-5">
-          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Já uso há mais de 6 meses e não troco. Agilidade no fechamento dos contratos e veículos de procedência."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">André Luiz — Comprador (DF)</span>
           </div>
-          <p class="text-sm text-gray-300 italic mb-3">"Agilidade, transparência e lucro certo nas revendas. A R.Brasil é hoje minha principal fonte de captação de veículos."</p>
-          <span class="text-xs font-bold text-yellow-400 uppercase">Gabriel Ferreira — Revendedor (ES)</span>
-        </div>
 
+          <div class="card p-5">
+            <div class="flex items-center gap-1 text-yellow-400 text-xs mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic mb-3">"Agilidade, transparência e lucro certo nas revendas. A R.Brasil é hoje minha principal fonte de captação de veículos."</p>
+            <span class="text-xs font-bold text-yellow-400 uppercase">Gabriel Ferreira — Revendedor (ES)</span>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <!-- ACESSO AOS GRUPOS E PAGAMENTO -->
     <section id="pagamento" class="max-w-5xl mx-auto px-5 py-20 text-center">
 
-      <p class="gold font-bold tracking-widest text-sm">
-        FAÇA PARTE DA REDE
-      </p>
+      <p class="gold font-bold tracking-widest text-sm uppercase">Acesso Imediato</p>
 
       <h2 class="text-3xl md:text-5xl font-black mt-3">
         ENTRE PARA A <span class="gold-gradient">R.BRASIL</span>
@@ -356,7 +385,7 @@
 
       <p class="text-gray-400 max-w-2xl mx-auto mt-5">
         Tenha acesso à rede de grupos de repasse de veículos,
-        conecte-se com compradores e vendedores e acompanhe oportunidades.
+        conecte-se com compradores e vendedores e acompanhe oportunidades exclusivas.
       </p>
 
       <div class="payment-card max-w-md mx-auto mt-10 p-8">
@@ -391,7 +420,7 @@
 
         <div class="border-t border-yellow-500/20 mt-8 pt-7">
 
-          <p class="font-bold">
+          <p class="font-bold text-sm">
             OU PAGUE PELO QR CODE
           </p>
 
@@ -424,18 +453,16 @@
     </section>
 
     <!-- ANUNCIAR -->
-    <section id="anunciar" class="max-w-5xl mx-auto px-5 py-20 text-center">
+    <section id="anunciar" class="max-w-5xl mx-auto px-5 py-16 text-center">
 
-      <p class="gold font-bold tracking-widest text-sm">
-        FAÇA PARTE DA REDE
-      </p>
+      <p class="gold font-bold tracking-widest text-sm uppercase">Faça Parte da Rede</p>
 
       <h2 class="text-3xl md:text-5xl font-black mt-3">
         TEM UM VEÍCULO PARA <span class="gold-gradient">REPASSAR?</span>
       </h2>
 
       <p class="text-gray-400 mt-5 max-w-2xl mx-auto">
-        Entre em contato com a R.BRASIL para saber como divulgar sua oportunidade.
+        Entre em contato com a R.BRASIL para saber como divulgar sua oportunidade para centenas de compradores em todo o país.
       </p>
 
       <a href="#contato" class="gold-button inline-block px-9 py-4 rounded-lg mt-8">
@@ -454,11 +481,11 @@
         </h2>
 
         <p class="text-gray-400 mt-4">
-          Entre em contato para conhecer a rede e as oportunidades.
+          Entre em contato para conhecer a rede, tirar dúvidas e acessar novas oportunidades.
         </p>
 
-        <p class="text-gray-500 text-sm mt-6">
-          O canal oficial de atendimento será divulgado em breve.
+        <p class="text-yellow-400 font-semibold text-sm mt-6">
+          <i class="fa-solid fa-headset mr-2"></i> Suporte oficial disponível para membros credenciados.
         </p>
 
       </div>
@@ -467,16 +494,16 @@
   </main>
 
   <!-- RODAPÉ -->
-  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm px-5">
+  <footer class="border-t border-yellow-500/20 py-7 text-center text-gray-500 text-sm px-5 bg-black">
 
     <p>
       © 2026 R.BRASIL — REPASSE DE VEÍCULOS.
       Todos os direitos reservados.
     </p>
 
-    <p class="mt-2">
+    <p class="mt-2 text-xs text-gray-600">
       A R.BRASIL conecta compradores e vendedores.
-      A negociação e a avaliação de cada veículo são responsabilidade das partes.
+      A negociação e a avaliação de cada veículo são de inteira responsabilidade das partes.
     </p>
 
   </footer>
